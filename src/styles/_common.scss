@@ -1,0 +1,19 @@
+// variables & mixin
+
+//subwayColor
+$subwayYellow: #ffc20d;
+$subwayGreen: #009132;
+// subwayFont
+$subwayFont: font_ns, sans-serif;
+// font color
+$fontGrey: #666666;
+$fontGreen: #009223;
+$fontYellow: #ffce32;
+$fontBlack: #292929;
+$fontWhite: #ffffff;
+
+// subwayLogo
+@mixin logoSize {
+  width: 202px;
+  height: 40px;
+}
