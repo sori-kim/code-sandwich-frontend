@@ -1,0 +1,73 @@
+@import "../../styles/common";
+
+
+.Login{
+    font-family: $subwayFont;
+
+    .signup-wrap{
+        
+        margin : 200px auto 0;
+        display: flex;
+        justify-content: center;
+
+        
+        .input-info{
+            display: flex;
+            flex-direction: column;
+
+
+            .advise{
+                font-size: 130%;
+                font-weight : 700;
+                margin-bottom : 30px;
+            }
+          
+            
+
+            .input-box{
+                margin : 30px auto;
+                border: none;
+                border-bottom : 2px solid $fontYellow;
+                width : 250px;
+                line-height: 20px;
+                outline: none;
+                padding: 0 0 8px;
+            }
+            
+            .adviseSignup{
+               text-decoration: none;
+               color : black;
+               font-size : 12px;
+            }
+
+
+            .loginbt{
+                width : 100%;
+                margin : 30px auto;
+                height : 40px;
+                border : none;
+                background-color: $fontYellow;
+                opacity:0.5;
+                color: $fontGreen;
+                font-weight: 700;;
+                &:hover{
+                    opacity:1;
+                }
+            }
+        
+
+
+        
+            
+        
+        }
+    
+    
+    
+    }
+    
+    
+
+
+    
+}
