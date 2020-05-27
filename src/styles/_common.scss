@@ -4,7 +4,7 @@
 $subwayYellow: #ffc20d;
 $subwayGreen: #009132;
 // subwayFont
-$subwayFont: 'Noto Sans', 'Noto Sans KR', sans-serif;
+$subwayFont: "Noto Sans", "Noto Sans KR", sans-serif;
 // font color
 $fontGrey: #666666;
 $fontGreen: #009223;
@@ -16,4 +16,24 @@ $fontWhite: #ffffff;
 @mixin logoSize {
   width: 202px;
   height: 40px;
+}
+
+@mixin mainBtn {
+  position: absolute;
+  color: $fontWhite;
+  font-size: 16px;
+  padding: 5px 15px;
+  border: 2px solid white;
+  border-radius: 20px;
+  background-color: transparent;
+}
+
+@mixin mainTitle {
+  color: $fontWhite;
+  font-family: $subwayFont;
+  font-weight: 600;
+  font-size: 20px;
+  position: absolute;
+  line-height: 140%;
+  letter-spacing: -0.1rem;
 }
