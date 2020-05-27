@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Menu from "./pages/Menu/Menu";
-import Main from "./pages/Main/Main";
 import Login from "./pages/Login/Login";
+import Main from "./pages/Main/Main";
 import SignUp from "./pages/SignUp/SignUp";
 import Menu_Details from "./pages/Menu_Details/Menu_Details";
 

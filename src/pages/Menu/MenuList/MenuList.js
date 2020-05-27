@@ -4,9 +4,10 @@ import "./MenuList.scss";
 
 class MenuList extends Component {
     render(){
+        const { sandwich } = this.props
         return( 
         <div className='menuList'>
-            {this.props.sandwich.map((sandwich)=> {
+            {sandwich.map((sandwich)=> {
                 return <MenuBox id={sandwich.id} image={sandwich.image} name={sandwich.name} ename={sandwich.ename} kcal={sandwich.kcal} /> 
             })}
         </div>

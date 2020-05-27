@@ -3,11 +3,6 @@ import "./MenuBox.scss";
 import "../../../styles/reset.scss"
 
 class MenuBox extends Component {
-    constructor(){
-        super()
-    }
-
-    
     render(){
         return(
             <div className='menuBox'>

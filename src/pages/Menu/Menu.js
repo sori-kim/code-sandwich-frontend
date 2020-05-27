@@ -1,36 +1,39 @@
 import React, {Component} from "react";
-import "./Menu.scss";
 import MenuList from "./MenuList/MenuList";
 import TopImage from "./TopImage/TopImage";
 import Middle from "./Middle/Middle";
+import Header from "../../components/Header/Header";
+import Nav from "../../components/Nav/Nav";
+import Footer from "../../components/Footer/Footer";
+import "./Menu.scss";
 
 
 class Menu extends Component {
     state = {
-        sandwich: []
+        sandwich: [],
     }
 
     componentDidMount(){
-        fetch('http://localhost:3000/data/data.json', {
-            method: "GET",
-            headers: {
-                'Content-type': 'application/json'
-            }
-        })
+        fetch('http://localhost:3000/data/data.json')
         .then(response => response.json())
         .then(response => this.setState({sandwich: response.data}))
     }
+        
 
     render(){
-        console.log(this.state)
+        const { sandwich } = this.state;
         return(
+          <div>
+            <Header />
             <div className="menuWrap">
                 <TopImage />
                 <Middle />
               <div className='menuLine'>
-                <MenuList sandwich={this.state.sandwich} />
+                <MenuList sandwich={sandwich} />
               </div>
             </div>
+            <Footer />
+          </div>
         )
     }
 }
