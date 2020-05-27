@@ -1,0 +1,33 @@
+@import "../../styles/common";
+
+.Footer {
+  height: 150px;
+  background-color: #2a2a2a;
+  color: $fontGrey;
+
+  .border {
+    border-bottom: 0.5px solid $fontGrey;
+
+    .footer_bar {
+      padding-left: 100px;
+      width: 50%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 57px;
+
+      &:nth-child(2) {
+        font-weight: 600;
+      }
+    }
+  }
+
+  p {
+    padding-left: 100px;
+    width: 75%;
+    display: flex;
+    align-items: center;
+    height: 87px;
+    line-height: 25px;
+  }
+}
