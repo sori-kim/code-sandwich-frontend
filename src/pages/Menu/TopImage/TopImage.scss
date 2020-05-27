@@ -1,0 +1,61 @@
+@import "../../../styles/_common.scss";
+
+
+.topImage {
+    width: 100%;
+    height: 380px;
+    background-image: url(http://subway.co.kr/images/menu/img_visual_sandwich.jpg);
+    background-position: center;
+    text-align: center;
+    font-family: $subwayFont;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #e85a1c;
+    .topNav {
+        margin: 0 auto;
+        text-align: center;
+        line-height: 120%;
+        height: 65px;
+        width: 70%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        //border-bottom: 1px solid #eb6b33;
+        ul {
+            width: 50%;
+            display: flex;
+            justify-content: space-around;
+            li {
+                font-family: $subwayFont;
+                color: #ffffff;
+            }
+            
+        }
+    }
+    hr {
+        background-color: #eb6b33;
+        border: 0.5px solid #eb6b33;
+        height: 0.5px;
+        margin-top: -10px;
+    }
+    .title{
+        margin-top: 50px;
+        h2 {
+            font-size: 70px;
+            font-weight: bold;
+            width: 100%;
+            //padding-top: 50%;
+            opacity: 1;
+            //top: 0px;
+            //background-color: black;
+        }
+        p {
+            margin-top: 2.3%;
+            line-height: 26px;
+            letter-spacing: -0.04em;
+            z-index: 9;
+            //top: 0;
+            //background-color: $subwayGreen;
+        }
+    }  
+}

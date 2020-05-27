@@ -1,0 +1,15 @@
+
+* {
+    box-sizing: border-box;
+  }
+
+.menuList {
+    //margin-top: 690px;
+    display: flex;
+    flex-flow: row wrap;
+    //flex-wrap: wrap;
+    //justify-content: space-around;
+    margin: 0 auto;
+    margin-top: 5%;
+    margin-left: 8.25%;
+}

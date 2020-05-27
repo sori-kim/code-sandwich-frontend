@@ -1,0 +1,11 @@
+@import '../../styles/_common.scss';
+
+
+.menuWrap{
+    margin: 0 auto;
+    .menuLine {
+        background-color: #f2f2f2;
+        display: flex;
+        justify-content: center;
+    }
+}
