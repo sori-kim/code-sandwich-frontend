@@ -1,0 +1,31 @@
+@import "../../styles/common";
+
+.Header {
+  height: 165px;
+  border-top: 5px solid $subwayGreen;
+
+  .header_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    img {
+      @include logoSize;
+    }
+  }
+  .header_btn {
+    position: absolute;
+    width: 20%;
+    left: 65%;
+    display: flex;
+    justify-content: space-around;
+    button {
+      border-radius: 50px;
+      border: 1px solid #dddddd;
+      background-color: $fontWhite;
+      color: $fontGrey;
+      font-size: 13px;
+      padding: 5px 12px;
+    }
+  }
+}
