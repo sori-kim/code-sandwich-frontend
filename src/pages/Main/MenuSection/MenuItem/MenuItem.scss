@@ -1,18 +1,19 @@
-.menu_wrapper {
+.slick-slider {
   display: flex;
   align-items: center;
   text-align: center;
-  flex-wrap: wrap;
 
   .menu {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 25%;
 
     img {
       width: 100%;
+      &:hover {
+        transform: scale(1.2);
+      }
     }
     .menu_name {
       font-weight: 500;
@@ -20,11 +21,11 @@
       padding-bottom: 15px;
     }
     .menu_desc {
-      font-size: 14px;
-      font-weight: 600;
+      font-size: 13px;
+      font-weight: 500;
       color: rgba(0, 0, 0, 0.4);
-      line-height: 20px;
-      width: 50%;
+      line-height: 16px;
+      width: 80%;
     }
   }
 }
