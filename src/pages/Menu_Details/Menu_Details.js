@@ -6,6 +6,8 @@ class Menu_Details extends React.Component {
   constructor() {
     super();
     this.state = {
+      opacity: true,
+      opacity2: true, 
       data: [],
     };
   }
@@ -15,6 +17,23 @@ class Menu_Details extends React.Component {
       .then((res) => res.json())
       .then((res) => this.setState({ data: res.data }));
   }
+
+  hoverHandler=(state)=>{
+    if(this.state.opacity){
+      this.setState({opacity:false})
+    }else if(this.state.opacity=== false){
+      this.setState({opacity:true})
+    }
+  };
+
+  
+  hoverHandler2=(state)=>{
+    if(this.state.opacity2){
+      this.setState({opacity2:false})
+    }else if(this.state.opacity2=== false){
+      this.setState({opacity2:true})
+    }
+  };
 
   render() {
     return (
@@ -76,6 +95,16 @@ class Menu_Details extends React.Component {
                       src="http://subway.co.kr/images/menu/sandwich_fl06.jpg"
                     />
                   </div>
+                  <Link
+                    to="#url"
+                    className="arr-prev"
+                    onMouseOver={this.hoverHandler}>
+                    <span>터키</span>
+                  </Link>
+                  <Link to="#url" className="arr-next"
+                  onMouseOver={this.hoverHandler2}>
+                    <span>로세터리 치킨</span>
+                  </Link>
                   <p className="summary">
                     갓 구운 빵과 신선한 7가지 야채로 즐기는 깔끔한 한끼
                   </p>
@@ -118,6 +147,23 @@ class Menu_Details extends React.Component {
                     <br />* 제품 사진은 이미지컷입니다.
                   </p>
                 </div>
+                <div className="menu_nav_prev">
+                  <div className={this.state.opacity? "rotate-img": "rotate-img-change"}>
+                    <img
+                      alt="이전메뉴"
+                      src="http://www.subway.co.kr/images/menu/sandwich_fl05.jpg"
+                    />
+                  </div>
+                </div>
+                <div className="menu_nav_next">
+                <div className={this.state.opacity2? "rotate-img-next": "rotate-img-change-next"}>
+                    <img
+                      alt="다음메뉴"
+                      src="http://www.subway.co.kr/images/menu/sandwich_fl01.jpg"
+                    />
+                  </div>
+                </div>
+
                 <div className="common-chart">
                   <div className="chart-content">
                     <h3>영양성분표</h3>
