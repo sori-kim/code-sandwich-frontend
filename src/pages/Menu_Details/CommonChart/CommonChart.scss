@@ -1,0 +1,121 @@
+.common-chart{
+    background-color: #f6f6f6;
+    padding: 96px 0 104px 0;
+    margin-top: 96px;
+
+    .chart-content{
+        width: 1170px;
+        margin: 0 auto;
+        position: relative;
+
+        h3{
+            font-weight: bold;
+            color: #292929;
+            font-size: 28px;
+            text-align: center;
+            letter-spacing: -0.05em;
+            margin-bottom: 37px;
+        }
+
+        .chart-wrapper{
+            padding: 0;
+            position: relative;
+
+            table{
+                clear: both;
+                border-top: 4px solid #009223;
+                width: 100%;
+                border-collapse: collapse;
+                border-spacing: 0;
+
+                thead{
+                    display: table-header-group;
+                    vertical-align: middle;
+                   
+                    
+                    tr{
+                        display: table-row;
+                        vertical-align: inherit;
+                        border-color: inherit;
+                        
+                        
+                        th{
+                            color: #009223;
+                            font-size: 16px;
+                            font-weight: 300;
+                            height: 69px;
+                            border-bottom: 1px solid #009223;
+                            text-align: center;
+                            padding: auto 0;
+                            display: table-cell;
+                            vertical-align: inherit;
+                            
+                        }
+                    }
+                }
+
+                tbody{
+                    display: table-row-group;
+                    vertical-align: middle;
+
+                    tr{
+                        display: table-row;
+                        vertical-align: inherit;
+                        border-color: inherit;
+
+                        td{
+                            height: 69px;
+                            border-bottom: 1px solid #dddddd;
+                            text-align: center;
+                            color: #292929;
+                            font-size: 16px;
+                            display: table-cell;
+                            vertical-align: inherit;
+                        }
+                    }
+
+                }
+            }
+
+
+        }
+
+        .notice{
+            margin-top: 18px;
+            min-height: 38px;
+
+            li{
+                color: #999;
+                font-size: 13px;
+                letter-spacing: -0.05em;
+                margin-top: 8px;
+            }
+        }
+
+        .bt-wrapper{
+            text-align: center;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+
+            button{
+                background-color: #444;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                width : 130px;
+                font-size: 16px;
+                height: 45px;
+                line-height: 40px;
+                color: #fff;
+                border-radius: 30px;
+                font-weight: bold;
+                text-align: center;
+                margin: 0 4px;
+
+            }
+
+        }
+    }
+
+}
