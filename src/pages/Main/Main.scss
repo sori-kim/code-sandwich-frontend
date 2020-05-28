@@ -3,4 +3,18 @@
 .Main {
   background-color: $fontWhite;
   font-family: $subwayFont;
+  position: relative;
+  .main_button {
+    position: absolute;
+    z-index: 999;
+    display: flex;
+    width: 600px;
+    height: 80px;
+    .button_order {
+      background-color: $fontGreen;
+    }
+    .button_map {
+      background-color: $fontYellow;
+    }
+  }
 }
