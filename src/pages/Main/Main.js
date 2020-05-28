@@ -15,14 +15,14 @@ class Main extends React.Component {
         <Header />
         <div className="Main">
           <div className="main_button">
-            <div className="button_order">
+            <a className="button_order">
               <img src={franchise} alt="icon" />
               <p>주문하기</p>
-            </div>
-            <div className="button_map">
-              <p>매장찾기</p>
+            </a>
+            <a className="button_map">
               <img src={map} alt="icon" />
-            </div>
+              <p>매장찾기</p>
+            </a>
           </div>
           <AutoPlay />
           <MenuSection />

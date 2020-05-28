@@ -20,9 +20,6 @@ class MenuSection extends React.Component {
       .then((res) => this.setState({ sandwich: res.data }))
       .then((res) =>
         this.setState({
-          new_sandwich: this.state.sandwich.filter((res) =>
-            res.id.includes("cl")
-          ),
           cl_sandwich: this.state.sandwich.filter((res) =>
             res.id.includes("cl")
           ),
@@ -34,6 +31,9 @@ class MenuSection extends React.Component {
           ),
           bf_sandwich: this.state.sandwich.filter((res) =>
             res.id.includes("bf")
+          ),
+          new_sandwich: this.state.sandwich.filter((res) =>
+            res.id.includes("cl")
           ),
         })
       );
@@ -55,6 +55,9 @@ class MenuSection extends React.Component {
   };
 
   render() {
+    console.log("같나?", this.state.new_sandwich === this.state.cl_sandwich);
+    console.log("new_sandwich", this.state.new_sandwich);
+    console.log("cl_sandwich", this.state.cl_sandwich);
     const {
       new_sandwich,
       cl_sandwich,
