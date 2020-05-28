@@ -1,0 +1,30 @@
+.menu_wrapper {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  flex-wrap: wrap;
+
+  .menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+
+    img {
+      width: 100%;
+    }
+    .menu_name {
+      font-weight: 500;
+      font-size: 20px;
+      padding-bottom: 15px;
+    }
+    .menu_desc {
+      font-size: 14px;
+      font-weight: 600;
+      color: rgba(0, 0, 0, 0.4);
+      line-height: 20px;
+      width: 50%;
+    }
+  }
+}
