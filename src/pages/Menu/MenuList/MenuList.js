@@ -15,6 +15,7 @@ class MenuList extends Component {
               name={sandwich.name}
               ename={sandwich.ename}
               kcal={sandwich.kcal}
+              key={sandwich.id}
             />
           );
         })}
