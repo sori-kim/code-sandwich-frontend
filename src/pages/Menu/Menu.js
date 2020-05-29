@@ -18,12 +18,6 @@ class Menu extends Component {
         bf_sandwich: [],
         id: ""
     }
-    /*기존 코드
-    componentDidMount(){
-        fetch('http://localhost:3000/data/data.json')
-        .then(response => response.json())
-        .then(response => this.setState({sandwich: response.data}))
-    }*/
 
     componentDidMount() {
       fetch("/data/data.json")
@@ -66,10 +60,6 @@ class Menu extends Component {
     };
 
     render(){
-      /*기존 코드
-        const { sandwich } = this.state;
-      */
-     console.log(this.state)
      const {
       sandwich,
       new_sandwich,

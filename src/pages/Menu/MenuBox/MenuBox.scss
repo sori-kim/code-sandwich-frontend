@@ -2,7 +2,7 @@
 
 
 .menuBoxWrap{
-    position: relative;
+    position: relative; //summaryBox 위치 설정
     .menuBox {
         width: 370px;
         height: 330px;
@@ -12,9 +12,13 @@
         margin: 27px;
         font-size: 16px;
         color: $fontGrey;
-        position: relative; //.sumary 텍스트 위치를 위한 position
+        position: relative;
         z-index: 300;
         font-family: $subwayFont;
+        &:hover{
+            transition-duration: 0.7s;
+            opacity: 0;
+        }
         .menuImg {
             width: 270px;
             height: 189px;
@@ -43,7 +47,6 @@
             line-height: 120%;
             margin: 0 0 13px;
             display: block;
-    
         }
         .kcal {
             color: $fontYellow;
@@ -61,19 +64,6 @@
             letter-spacing: -0.05em;
             line-height: 120%;
         }
-        /*
-        .summary {
-            //opacity: 0;
-            color: #c5e698;
-            width: 370px;
-            height: 330px;
-            position: absolute;
-            top: 130px;
-            background-color: red;
-            line-height: 24px;
-            letter-spacing: -0.05em;
-        }
-        */
     }
     .summaryBox{
         width: 370px;
@@ -84,17 +74,14 @@
         margin: 27px;
         font-size: 16px;
         color: $fontGrey;
-        //position: relative;
-        z-index: 400;
+        z-index: 200;
         font-family: $subwayFont;
         display: flex;
         flex-direction: column;
         align-items: center;
         padding-top: 8%;
         position: absolute;
-        //top: 200%;
-        top: -0.4%;
-        //display: none;
+        top: 0;   
         .nameH{
             width: 370px;
             height: 19.2px;
@@ -106,6 +93,8 @@
             position: relative;
             top: 0;
             line-height: 120%;
+            opacity: 0;
+            animation: up 0.5s forwards 0.4s;
         }
         .enameH{
             color: #ffffff;
@@ -115,6 +104,8 @@
             margin: 0 0 13px;
             display: block;
             padding-top: 3%;
+            opacity: 0;
+            animation: up 0.5s forwards 0.4s;
         }
         .summary{
             color: #c5e698;
@@ -123,6 +114,8 @@
             line-height: 24px;
             width: 70%;
             margin: 0 auto;
+            opacity: 0;
+            animation: up 0.5s forwards 0.5s;
         }
         .summaryImg{
             width: 30%;
@@ -130,6 +123,49 @@
             position: absolute;
             top: 70%;
             left: 40%;
+            opacity: 0;
+            animation: down 0.5s forwards 0.6s;
         }
+    }
+    .noBox{
+        width: 370px;
+        height: 330px;
+        background-color: $subwayGreen;
+        text-align: center;
+        overflow: hidden;
+        margin: 27px;
+        font-size: 16px;
+        color: $fontGrey;
+        z-index: 200;
+        font-family: $subwayFont;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 8%;
+        position: absolute;
+        top: 0;    
+    }
+}
+
+@keyframes up {
+    from {
+        transform: translateY(200px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    
+}
+
+@keyframes down {
+    from {
+        transform: translateY(-70px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
     }
 }
