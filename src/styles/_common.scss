@@ -37,3 +37,10 @@ $fontWhite: #ffffff;
   line-height: 140%;
   letter-spacing: -0.1rem;
 }
+
+@mixin customTitle {
+  margin: 0;
+  line-height: 1.2;
+  font-weight: 900;
+  color: rgba(0, 0, 0, 0.7);
+}
