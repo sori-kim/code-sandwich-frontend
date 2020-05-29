@@ -1,0 +1,40 @@
+@import "../../../styles/common";
+
+// .OrderButton {
+//   border: 2px solid #ddd;
+//   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+//   width: 345px;
+//   height: 150px;
+//   padding: 40px;
+
+.btn_wrapper {
+  display: flex;
+  z-index: 55;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 50px;
+
+  button {
+    padding: 12px 0;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    width: 150px;
+    border: 1px solid #f2f2f2;
+    border-radius: 20px;
+
+    &:first-child {
+      background-color: $subwayGreen;
+      color: $fontWhite;
+      //border: 0.8px solid $fontGrey;
+      border: none;
+    }
+    &:last-child {
+      background-color: $subwayYellow;
+      color: $fontWhite;
+      text-decoration: none;
+      border: 0.8px solid $subwayYellow;
+    }
+  }
+}
