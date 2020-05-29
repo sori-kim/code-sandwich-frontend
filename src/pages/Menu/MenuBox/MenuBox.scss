@@ -1,92 +1,135 @@
 @import '../../../styles/_common.scss';
 
-* {
-    box-sizing: border-box;
-  }
 
-
-.menuBox {
-    //opacity: 0;
-    width: 370px;
-    height: 330px;
-    background-color: #ffffff;
-    text-align: center;
-    overflow: hidden;
-    //margin: 30px 0 0 30px;
-    margin: 27px;
-    font-size: 16px;
-    color: $fontGrey;
-    // float: left;
-    position: relative; //.sumary 텍스트 위치를 위한 position
-    //border: 1px solid red;
-    .menuImg {
-        width: 270px;
-        height: 189px;
-        margin: 20px auto 0;
-        z-index: 1;
-        position: relative;
-        img{
-            width: 100%;
-            height: 100%;
+.menuBoxWrap{
+    position: relative;
+    .menuBox {
+        width: 370px;
+        height: 330px;
+        background-color: #ffffff;
+        text-align: center;
+        overflow: hidden;
+        margin: 27px;
+        font-size: 16px;
+        color: $fontGrey;
+        position: relative; //.sumary 텍스트 위치를 위한 position
+        z-index: 300;
+        font-family: $subwayFont;
+        .menuImg {
+            width: 270px;
+            height: 189px;
+            margin: 20px auto 0;
+            position: relative;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .name {
+            width: 370px;
+            height: 19.2px;
+            color: #292929;
+            font-size: 22px;
+            font-weight: bold;
+            margin: 10px 0px 7px;
+            display: block;
+            position: relative;
+            top: 0;
+            line-height: 120%;
+        }
+        .ename {
+            width: 370px;
+            height: 19.2px;
+            line-height: 120%;
+            margin: 0 0 13px;
+            display: block;
+    
+        }
+        .kcal {
+            color: $fontYellow;
+            font-size: 18px;
+            font-weight: bold;
+            display: block;
+            letter-spacing: -0.05em;
+            line-height: 120%;
+        }
+        .nokcal {
+            color: $fontYellow;
+            font-size: 18px;
+            font-weight: bold;
+            display: none;
+            letter-spacing: -0.05em;
+            line-height: 120%;
         }
         /*
-        img{
-            opacity: 0;
-            width: 100%;
-            height: 100%;
+        .summary {
+            //opacity: 0;
+            color: #c5e698;
+            width: 370px;
+            height: 330px;
+            position: absolute;
+            top: 130px;
+            background-color: red;
+            line-height: 24px;
+            letter-spacing: -0.05em;
         }
         */
     }
-    .name {
-        width: 370px;
-        height: 19.2px;
-        color: #292929;
-        font-size: 22px;
-        font-weight: bold;
-        margin: 10px 0px 7px;
-        display: block;
-        position: relative;
-        z-index: 5;
-        top: 0;
-        line-height: 120%;
-    }
-    .ename {
-        width: 370px;
-        height: 19.2px;
-        line-height: 120%;
-        margin: 0 0 13px;
-        display: block;
-
-    }
-    .kcal {
-        color: $fontYellow;
-        font-size: 18px;
-        font-weight: bold;
-        display: block;
-        letter-spacing: -0.05em;
-        z-index: 1;
-        line-height: 120%;
-    }
-    .nokcal {
-        color: $fontYellow;
-        font-size: 18px;
-        font-weight: bold;
-        display: none;
-        letter-spacing: -0.05em;
-        z-index: 1;
-        line-height: 120%;
-    }
-    /*
-    .summary {
-        //opacity: 0;
-        color: #c5e698;
+    .summaryBox{
         width: 370px;
         height: 330px;
+        background-color: $subwayGreen;
+        text-align: center;
+        overflow: hidden;
+        margin: 27px;
+        font-size: 16px;
+        color: $fontGrey;
+        //position: relative;
+        z-index: 400;
+        font-family: $subwayFont;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 8%;
         position: absolute;
-        top: 130px;
-        background-color: red;
-        line-height: 24px;
-        letter-spacing: -0.05em;
+        //top: 200%;
+        top: -0.4%;
+        //display: none;
+        .nameH{
+            width: 370px;
+            height: 19.2px;
+            color: #ffffff;
+            font-size: 22px;
+            font-weight: bold;
+            margin: 10px 0px 7px;
+            display: block;
+            position: relative;
+            top: 0;
+            line-height: 120%;
+        }
+        .enameH{
+            color: #ffffff;
+            width: 370px;
+            height: 19.2px;
+            line-height: 120%;
+            margin: 0 0 13px;
+            display: block;
+            padding-top: 3%;
+        }
+        .summary{
+            color: #c5e698;
+            font-size: 16px;
+            letter-spacing: -0.05em;
+            line-height: 24px;
+            width: 70%;
+            margin: 0 auto;
+        }
+        .summaryImg{
+            width: 30%;
+            height: 30%;
+            position: absolute;
+            top: 70%;
+            left: 40%;
+        }
     }
-    */
 }

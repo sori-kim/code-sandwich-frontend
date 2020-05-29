@@ -11,6 +11,7 @@
     position: absolute;
     top: 67%;
     left: 10%;
+    z-index: 200;
     ul{
         display: flex;
         justify-content: space-around;
@@ -65,5 +66,12 @@
                 top: 28px;
             }
         }
+        .isActive {
+            color: $fontGreen;
+            font-weight: 600;
+          }
+          .notActive {
+            color: $fontGrey;
+          }
     }
 }

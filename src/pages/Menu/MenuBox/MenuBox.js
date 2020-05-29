@@ -5,6 +5,7 @@ import "../../../styles/reset.scss"
 class MenuBox extends Component {
     render(){
         return(
+          <div className="menuBoxWrap">
             <div className='menuBox'>
               <div className ='menuImg'>
                 <img alt='We are sorry' src={this.props.image} />
@@ -12,12 +13,14 @@ class MenuBox extends Component {
               <p className='name'>{this.props.name}</p>
               <p className='ename'>{this.props.ename}</p>
               <p className={this.props.kcal > 0 ? "kcal":"nokcal"}>{this.props.kcal} kcal</p>
-              {/*<div className='summary'>
-                <p> 육즙이쫙 <br />
-                풍부한 비프 스테이크의 풍미가 입안 한가득
-                </p>
-                </div>*/}
             </div>
+            <div className='summaryBox'>
+              <p className='nameH'>{this.props.name}</p>
+              <p className='enameH'>{this.props.ename}</p>
+              <p className="summary">{this.props.summary}</p>
+              <img className="summaryImg" src="http://subway.co.kr/images/menu/icon_view.png" alt="자세히보기" />
+            </div>
+          </div>
         )
     }
 }

@@ -11,6 +11,7 @@ class MenuSection extends React.Component{
         isActive: false
     }
     
+    
  componentDidMount(){
      fetch('/data/data.json')
      .then(res => res.json())
@@ -19,7 +20,6 @@ class MenuSection extends React.Component{
  }
 
  
-
  handleOnClick = (e) => {
      const category = e.target.innerText
      let arr = [];
