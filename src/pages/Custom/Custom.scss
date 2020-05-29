@@ -6,44 +6,53 @@
 
   .custom_wrapper {
     display: flex;
-    justify-content: space-around;
     width: 70%;
     margin: 50px auto;
-    .custom_image {
+
+    .ingredients {
       display: flex;
       flex-direction: column;
-      .not_burn {
-        background-color: grey;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        padding: 5px;
-        position: absolute;
-        z-index: 9;
-        top: 260px;
-        cursor: pointer;
-      }
+      justify-content: space-around;
+      .custom_image {
+        display: flex;
+        flex-direction: column;
+        .not_burn {
+          background-color: grey;
+          width: 500px;
+          height: 500px;
+          border-radius: 50%;
+          padding: 5px;
+          position: absolute;
 
-      .burn {
-        background-color: #dd3705;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        padding: 5px;
-        position: absolute;
-        z-index: 9;
-        top: 260px;
-        cursor: pointer;
-      }
-      img {
-        width: 440px;
-        padding: 20px;
-        position: relative;
-        &:first-child {
+          top: 260px;
+          cursor: pointer;
+          z-index: 9999;
+        }
+
+        .burn {
+          background-color: #dd3705;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          padding: 5px;
+          position: absolute;
+          z-index: 9;
+          top: 260px;
+          cursor: pointer;
+        }
+        img {
+          width: 440px;
+          padding: 20px;
+          position: relative;
+          &:first-child {
+            cursor: pointer;
+          }
         }
       }
     }
-    .orderbox_wrapper {
+
+    .away_ingredients {
+      opacity: 0 !important;
     }
   }
 }

@@ -1,0 +1,48 @@
+@import "../../../styles/common";
+
+.Bread {
+  display: flex;
+  justify-content: space-around;
+  width: 70%;
+  height: 100%;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
+
+  .title {
+    @include mainTitle;
+    color: black;
+  }
+  .cals {
+    @include mainTitle;
+    color: grey;
+  }
+
+  .not_burn {
+    background-color: grey;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    padding: 5px;
+    position: absolute;
+    z-index: 9;
+    top: 260px;
+    cursor: pointer;
+  }
+
+  .burn {
+    background-color: #dd3705;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    padding: 5px;
+    //   position: absolute;
+    z-index: 9;
+    top: 260px;
+    cursor: pointer;
+  }
+}

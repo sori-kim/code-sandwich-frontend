@@ -20,6 +20,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+
     button {
       border-radius: 50px;
       border: 1px solid #dddddd;
@@ -27,9 +28,12 @@
       color: $fontGrey;
       font-size: 13px;
       padding: 5px 12px;
+      cursor: pointer;
+      outline: none;
     }
     .cart {
       color: $subwayGreen;
+      cursor: pointer;
       padding: 2px;
     }
   }
