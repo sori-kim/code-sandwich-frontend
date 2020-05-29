@@ -1,28 +1,23 @@
 @import "../../styles/common";
 
-.Menu_Details{
-    font-family: $subwayFont;
-    list-style: none;
-    text-decoration : none;
+.Menu_Details {
+  font-family: $subwayFont;
+  list-style: none;
+  text-decoration: none;
 
-    .sub-header{
-        left: 0;
-        width: 100%;
-        top: 0;
-        border-bottom: 1px solid #e5e5e5;
-        height: 59px;
+  .sub-header {
+    left: 0;
+    width: 100%;
+    top: 0;
+    border-bottom: 1px solid #e5e5e5;
+    height: 59px;
 
-        
-        .main{
-
-            .menu-view-wrapper{
-                padding-top: 139px; 
-                overflow: hidden;
-            }
-
-            }
-        }
+    .main {
+      .menu-view-wrapper {
+        padding-top: 139px;
+        overflow: hidden;
+        position: relative;
+      }
     }
-
-
-
+  }
+}

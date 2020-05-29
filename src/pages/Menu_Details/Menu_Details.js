@@ -2,6 +2,7 @@ import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import MenuNav from "./Menu-nav/MenuNav";
 import MenuTitle from "./MenuTitle/MenuTitle";
+import OrderButton from "./OrderButton/OrderButton";
 import MenuSelector from "./MenuSelector/MenuSelector";
 import MenuRecipe from "./MenuRecipe/MenuRecipe";
 import CommonChart from "./CommonChart/CommonChart";
@@ -27,6 +28,7 @@ class Menu_Details extends React.Component {
           <div className="main">
             <div className="menu-view-wrapper">
               <MenuTitle sandwich={this.state.sandwich} />
+              <OrderButton />
               <MenuSelector />
               <MenuRecipe />
               <CommonChart />

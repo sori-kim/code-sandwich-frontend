@@ -3,6 +3,19 @@ import { Link, withRouter } from "react-router-dom";
 import "./MenuSelector.scss";
 
 class MenuSelector extends React.Component {
+  state = {
+    hoverLeft: true,
+    hoverRight: true,
+  };
+
+  hoverHandlerLeft = (state) => {
+    this.setState({ hoverLeft: !this.state.hoverLeft });
+  };
+
+  hoverHandlerRight = (state) => {
+    this.setState({ hoverRight: !this.state.hoverRight });
+  };
+
   render() {
     return (
       <div className="menu-content">
@@ -15,7 +28,11 @@ class MenuSelector extends React.Component {
               />
               <div className="MenuRotate">
                 <div className="menu_nav_prev">
-                  <div className="rotate-img">
+                  <div
+                    className={
+                      this.state.hoverLeft ? "rotate-img" : "rotate-img-change"
+                    }
+                  >
                     <img
                       alt="이전메뉴"
                       src="http://www.subway.co.kr/images/menu/sandwich_fl05.jpg"
@@ -23,12 +40,13 @@ class MenuSelector extends React.Component {
                   </div>
                 </div>
                 <div className="menu_nav_next">
-                  <div className="rotate-img-next">
-                    {/* // className={
-              //   this.state.opacity2
-              //     ? "rotate-img-next"
-              //     : "rotate-img-change-next"
-              // } */}
+                  <div
+                    className={
+                      this.state.hoverRight
+                        ? "rotate-img"
+                        : "rotate-img-change-next"
+                    }
+                  >
                     <img
                       alt="다음메뉴"
                       src="http://www.subway.co.kr/images/menu/sandwich_fl01.jpg"
@@ -40,14 +58,16 @@ class MenuSelector extends React.Component {
             <Link
               to="#url"
               className="arr-prev"
-              onMouseOver={this.hoverHandler}
+              onMouseOver={this.hoverHandlerLeft}
+              onMouseLeave={this.hoverHandlerLeft}
             >
               <span>터키</span>
             </Link>
             <Link
               to="#url"
               className="arr-next"
-              onMouseOver={this.hoverHandler2}
+              onMouseOver={this.hoverHandlerRight}
+              onMouseLeave={this.hoverHandlerRight}
             >
               <span>로세터리 치킨</span>
             </Link>
