@@ -10,7 +10,7 @@ class Login extends React.Component {
 
   signupHandler = () => {
     console.log(this.state.inputEmail);
-    fetch("#url", {
+    fetch("http://10.58.5.58:8000/account/signin", {
       method: "POST",
       headers: {
         "content-Type": "application/json",
@@ -22,7 +22,7 @@ class Login extends React.Component {
     }).then((res) => {
       if (res.ok) {
         alert("로그인성공!");
-        this.props.history.push("/main");
+        this.props.history.push("/");
       } else {
         alert("회원정보가 맞지 않습니다. <br/> 다시 확인해주세요.");
         this.props.history.push("/login");
@@ -45,7 +45,8 @@ class Login extends React.Component {
               value={this.state.inputEmail}
               onChange={(e) => {
                 this.setState({ inputEmail: e.target.value });
-              }}/>
+              }}
+            />
             <input
               className="input-box"
               type="password"
@@ -55,7 +56,10 @@ class Login extends React.Component {
                 this.setState({ inputPw: e.target.value });
               }}
             />
-            <Link to="/signup" className="adviseSignup"> 계정이 없으신가요? 가입하기 </Link>
+            <Link to="/signup" className="adviseSignup">
+              {" "}
+              계정이 없으신가요? 가입하기{" "}
+            </Link>
             <button onClick={this.signupHandler} className="loginbt">
               로그인
             </button>
