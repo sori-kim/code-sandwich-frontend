@@ -3,6 +3,13 @@
 
 .menuWrap{
     margin: 0 auto;
+    width: 100%;
+    .menuTop {
+        width: 100%;
+    }
+    .menuMiddel {
+        width: 100%;
+    }
     .menuLine {
         background-color: #f2f2f2;
         display: flex;
