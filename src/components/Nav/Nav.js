@@ -27,8 +27,8 @@ class Nav extends React.Component {
                 <a href="#">주문 TIP</a>
               </div>
               <div class="column">
-                <a href="#">써브웨이 역사</a>
                 <a href="#">매장 찾기</a>
+                <a href="#">써브웨이 역사</a>
               </div>
               <div class="column">
                 <a href="#">주문하기</a>

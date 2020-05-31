@@ -1,10 +1,10 @@
 .menuList {
-    //margin-top: 690px;
     display: flex;
     flex-flow: row wrap;
-    //flex-wrap: wrap;
-    //justify-content: space-around;
     margin: 0 auto;
-    margin-top: 5%;
-    margin-left: 8.25%;
+    padding-top: 5%;
+    padding-left: 8.25%;
+    z-index: 100;
+    width: 100%;
+    background-color: #f2f2f2;
 }

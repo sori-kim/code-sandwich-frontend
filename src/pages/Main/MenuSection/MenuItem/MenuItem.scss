@@ -8,8 +8,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
-    img {
+    position: relative;
+    cursor: pointer;
+    .menu_img {
       width: 100%;
     }
     .menu_name {
@@ -24,13 +25,27 @@
       line-height: 16px;
       width: 80%;
     }
-    .activeHover {
-      img {
-        transform: scale(1.2);
-      }
-      .menu_desc {
-        display: none;
-      }
+    .i_explore {
+      position: absolute;
+      display: none;
+      // top: 200px;
+      width: 35%;
+    }
+  }
+
+  .activeHover {
+    .menu_img {
+      transform: scale(1.2);
+    }
+    .menu_desc {
+      display: none;
+    }
+    .menu_name {
+      font-size: 27px;
+      z-index: 99;
+    }
+    .i_explore {
+      display: block;
     }
   }
 }

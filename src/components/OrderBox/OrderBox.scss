@@ -47,6 +47,8 @@
         margin-bottom: 15px;
         font-size: 1.2rem;
         font-weight: 600;
+        outline: none;
+        cursor: pointer;
 
         &:first-child {
           background-color: $subwayGreen;
