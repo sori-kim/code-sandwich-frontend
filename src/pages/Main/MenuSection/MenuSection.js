@@ -55,9 +55,9 @@ class MenuSection extends React.Component {
   };
 
   render() {
-    console.log("같나?", this.state.new_sandwich === this.state.cl_sandwich);
-    console.log("new_sandwich", this.state.new_sandwich);
-    console.log("cl_sandwich", this.state.cl_sandwich);
+    // console.log("같나?", this.state.new_sandwich === this.state.cl_sandwich);
+    // console.log("new_sandwich", this.state.new_sandwich);
+    // console.log("cl_sandwich", this.state.cl_sandwich);
     const {
       new_sandwich,
       cl_sandwich,

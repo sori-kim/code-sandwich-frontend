@@ -8,45 +8,32 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Custom.scss";
 
 const toppings = {
+  // 0: <Ingredients />,
   1: <Bread />,
 };
-
 export default class Custom extends React.Component {
   state = {
     isActive: false,
     activeTab: 0,
   };
 
-  handleBurn = () => {
-    this.state.isActive
-      ? this.setState({ isActive: false })
-      : this.setState({ isActive: true });
-  };
-
-  handleToppings = () => {
-    this.setState({ activeTab: 1 });
+  handleToppings = (num) => {
+    this.setState({ activeTab: num });
   };
 
   render() {
+    console.log(toppings[this.state.activeTab]);
     return (
       <>
         <Header />
         <div className="Custom">
           <div className="custom_wrapper">
-            <div> {toppings[this.state.activeTab]}</div>
+            {toppings[this.state.activeTab]}
             <div
               className={
                 this.state.activeTab === 1 ? "away_ingredients" : "ingredients"
               }
             >
-              <a onClick={this.handleBurn}>
-                <FontAwesomeIcon
-                  icon={faBurn}
-                  size="2x"
-                  color="white"
-                  className={this.state.isActive ? "burn" : "not_burn"}
-                />
-              </a>
               <img
                 onClick={this.handleToppings}
                 src="https://media.subway.com/digital/Account_Updates/Assets/App-Base/Web_Images/Subway/en-us/Options/o_BreadItalian_customizer_large.png"

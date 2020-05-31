@@ -11,9 +11,6 @@
 
     img {
       width: 100%;
-      &:hover {
-        transform: scale(1.2);
-      }
     }
     .menu_name {
       font-weight: 500;
@@ -26,6 +23,14 @@
       color: rgba(0, 0, 0, 0.4);
       line-height: 16px;
       width: 80%;
+    }
+    .activeHover {
+      img {
+        transform: scale(1.2);
+      }
+      .menu_desc {
+        display: none;
+      }
     }
   }
 }
