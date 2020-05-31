@@ -1,8 +1,9 @@
 import React, {Component} from "react";
-import "./Shop.scss";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import OrderDetail from "./OrderDetail";
+import OrderSummary from "./OrderSummary";
+import "./Shop.scss";
 
 class Shop extends Component{
     render(){
@@ -14,9 +15,14 @@ class Shop extends Component{
                     <div className="leftSection">
                       <h1>Your Items</h1>
                       <OrderDetail />
+                      <div className="instruction">
+                          <h2>Special Instructions</h2>
+                          <input type="text" maxLength="144" placeholder="Enter Instructions here"></input>
+                          <p>144</p>
+                      </div>
                     </div>
                     <div className="rightSection">
-                        오른쪽 예정
+                        <OrderSummary />
                     </div>
                 </div>
                 <Footer />
