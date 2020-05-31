@@ -1,0 +1,63 @@
+.MenuRecipe{
+
+    .recipe{
+        margin-top: 46px;
+    
+        ul{
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+    
+            li{
+                position: relative;
+                margin: 0 10px;
+    
+                
+                .recipe-img{
+                    width: 100px;
+                    height: 100px;
+                    overflow: hidden;
+    
+                    img{
+                        width: auto;
+                        height: 100%;
+                        margin-left: -21px;
+                    }
+                }
+                .recommand{
+                    color: #fff;
+                    font-size: 12px;
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    background-color: #009223;
+                    text-align: center;
+                    line-height: 35px;
+                    width: 35px;
+                    height: 35px;
+                    letter-spacing: -0.02em;
+                    font-weight: 300;
+                    border-radius: 20px;
+                }
+                
+                p{
+                    font-size: 13px;
+                    color: #292929;
+                    letter-spacing: -0.025em;
+                    margin-top: 8px;
+                    text-align: center;
+                }
+            }
+        }
+    }
+    
+    .excluding{
+        color: #999;
+        font-size: 13px;
+        letter-spacing: -0.05em;    
+        margin-top: 40px;
+        line-height: 1.6;
+        text-align: center;
+                         
+    }
+}

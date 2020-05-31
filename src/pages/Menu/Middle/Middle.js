@@ -1,8 +1,7 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import "./Middle.scss";
 
 class Middle extends Component {
-
     render(){
       const {
         sandwich,

@@ -1,0 +1,64 @@
+@import "../../styles/common";
+
+.OrderBox {
+  border: 2px solid #ddd;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 345px;
+  height: 360px;
+  padding: 40px;
+
+  .order_wrapper {
+    .title {
+      font-size: 1.8rem;
+      @include customTitle;
+      padding-bottom: 20px;
+    }
+    div {
+      display: flex;
+      //   justify-content: flex-end;
+      .price {
+        font-size: 1.5rem;
+        @include customTitle;
+        padding-bottom: 20px;
+        &::after {
+          content: "|";
+          padding: 0 20px;
+        }
+      }
+      .cals {
+        font-size: 1.5rem;
+        @include customTitle;
+      }
+    }
+    .size {
+      font-size: 1.2rem;
+      @include customTitle;
+      text-transform: uppercase;
+      border-bottom: 5px solid $subwayYellow;
+      width: 40%;
+    }
+    .btn_wrapper {
+      display: flex;
+      flex-direction: column;
+      padding: 30px 0;
+
+      button {
+        padding: 12px 0;
+        margin-bottom: 15px;
+        font-size: 1.2rem;
+        font-weight: 600;
+
+        &:first-child {
+          background-color: $subwayGreen;
+          color: $fontWhite;
+        }
+        &:last-child {
+          background-color: white;
+          color: $subwayGreen;
+          text-decoration: none;
+          border: 0.8px solid rgba(0, 0, 0, 0.4);
+        }
+      }
+    }
+  }
+}

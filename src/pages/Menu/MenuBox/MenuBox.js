@@ -1,6 +1,6 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import "./MenuBox.scss";
-import "../../../styles/reset.scss"
+import "../../../styles/reset.scss";
 
 class MenuBox extends Component {
     state=({

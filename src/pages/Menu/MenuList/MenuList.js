@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import MenuBox from "../MenuBox/MenuBox";
 import "./MenuList.scss";
 
@@ -15,4 +15,4 @@ class MenuList extends Component {
     }
 }
 
-export default MenuList
+export default MenuList;
