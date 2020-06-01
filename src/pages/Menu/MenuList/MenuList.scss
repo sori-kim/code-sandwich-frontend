@@ -1,10 +1,12 @@
 .menuList {
+    min-width: 500px;
+    max-width: 1500px;
     display: flex;
-    flex-flow: row wrap;
+    flex-wrap: wrap;
     justify-content: flex-start;
     margin: 0 auto;
     padding-top: 5%;
-    padding-left: 8.25%;
+    //padding-left: 8.25%;
     z-index: 100;
     width: 300vh;
 }

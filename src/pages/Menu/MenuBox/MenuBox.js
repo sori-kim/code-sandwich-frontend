@@ -17,12 +17,12 @@ class MenuBox extends Component {
     this.setState({ animation: false });
   };
 
-
     goToVeggie = (e) => {
       this.props.history.push("/menu_details")
     }
 
     render(){
+      console.log(this.props)
         return(
           <div className="menuBoxWrap" onClick={this.goToVeggie} onMouseEnter={this.animationON} onMouseLeave={this.animationOff}>
             <div className='menuBox'>
