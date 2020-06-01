@@ -1,19 +1,27 @@
 .MenuNav {
   max-width: 1170px;
   margin: 0 auto;
+  height: 59px;
 
   .sub-loc {
-    display: flex;
+    // display: flex;
     justify-content: space-around;
+    align-content: center;
 
     .menu-wrap {
       display: flex;
       list-style: none;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
+      justify-content: space-around;
+      margin: 0 290px;
 
       .menuList {
         text-decoration: none;
         margin: 0;
+        padding: 0;
+        background-color: #ffffff;
+        border-bottom: 1px solid #e5e5e5;
+        max-width: 150px;
 
         .menu-link-1 {
           text-decoration: none;
@@ -22,9 +30,9 @@
           color: #999999;
           font-size: 16px;
           position: relative;
-          padding-left: 24px;
+          padding-left: 56px;
           margin: 0;
-          // margin-left: 21px;
+          max-width: 150px;
         }
 
         .menu-link {
@@ -34,8 +42,9 @@
           color: #999999;
           font-size: 16px;
           position: relative;
-          padding-left: 34px;
-          // margin-left: 21px;
+          padding-left: 30px;
+          margin-left: 21px;
+          max-width: 150px;
 
           &::after {
             content: "";
@@ -44,7 +53,7 @@
             background-color: #dddddd;
             border-radius: 30px;
             position: absolute;
-            left: 10px;
+            left: 0;
             top: 28px;
           }
         }
