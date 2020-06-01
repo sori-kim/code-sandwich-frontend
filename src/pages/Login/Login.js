@@ -38,10 +38,12 @@ class Login extends React.Component {
         <div className="Login">
           <div className="login-wrap">
             <div className="input-info">
-              <img
-                src="https://id-content.subway.com/content/assets/images/logo-myrewards/Subway-MyWayRewards.png?v=d5b4027e-c994-4fd8-ba0f-9d53dd0c7437"
-                alt="reward"
-              ></img>
+              <Link to="/">
+                <img
+                  src="https://id-content.subway.com/content/assets/images/logo-myrewards/Subway-MyWayRewards.png?v=d5b4027e-c994-4fd8-ba0f-9d53dd0c7437"
+                  alt="reward"
+                ></img>
+              </Link>
               <div className="label">이메일</div>
               <input
                 className="input-box"
