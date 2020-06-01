@@ -1,73 +1,83 @@
 @import "../../styles/common";
 
+.Login {
+  font-family: $subwayFont;
+  background-color: $fontYellow;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 
-.Login{
-    font-family: $subwayFont;
+  .login-wrap {
+    max-width: 600px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin: 100px auto 400px;
+    border: 2px solid $fontYellow;
+    border-radius: 10px;
+    padding: 50px 100px;
+    background-color: #ffffff;
+    height: calc(100vh-200px);
 
-    .signup-wrap{
-        
-        margin : 200px auto 0;
-        display: flex;
-        justify-content: center;
+    .input-info {
+      display: flex;
+      flex-direction: column;
 
-        
-        .input-info{
-            display: flex;
-            flex-direction: column;
+      img {
+        margin-top: 50px;
+        margin-bottom: 100px;
+      }
 
+      .advise {
+        font-size: 130%;
+        font-weight: 500;
+        margin-bottom: 50px;
+        color: $fontGreen;
+        border-radius: 10px;
+        line-height: 1.5;
+        letter-spacing: 1.2;
+        padding: 10px;
+        text-align: center;
+      }
 
-            .advise{
-                font-size: 130%;
-                font-weight : 700;
-                margin-bottom : 30px;
-            }
-          
-            
+      .label {
+        color: $fontYellow;
+        opacity: 1;
+      }
 
-            .input-box{
-                margin : 30px auto;
-                border: none;
-                border-bottom : 2px solid $fontYellow;
-                width : 250px;
-                line-height: 20px;
-                outline: none;
-                padding: 0 0 8px;
-            }
-            
-            .adviseSignup{
-               text-decoration: none;
-               color : black;
-               font-size : 12px;
-            }
+      .input-box {
+        margin: 10px auto 30px;
+        border: none;
+        border-bottom: 2px solid $fontYellow;
+        width: 300px;
+        line-height: 20px;
+        outline: none;
+        padding: 0 0 8px;
+      }
 
+      .adviseSignup {
+        text-decoration: none;
+        color: black;
+        font-size: 16px;
+        text-align: center;
+        margin: 20px auto;
+      }
 
-            .loginbt{
-                width : 100%;
-                margin : 30px auto;
-                height : 40px;
-                border : none;
-                background-color: $fontYellow;
-                opacity:0.5;
-                color: $fontGreen;
-                font-weight: 700;;
-                &:hover{
-                    opacity:1;
-                }
-            }
-        
-
-
-        
-            
-        
+      .loginbt {
+        width: 100%;
+        margin: 30px auto 50px;
+        height: 50px;
+        border: 0;
+        outline: 0;
+        background-color: $fontYellow;
+        opacity: 0.5;
+        color: $fontGreen;
+        font-weight: 700;
+        border-radius: 10px;
+        &:hover {
+          opacity: 1;
         }
-    
-    
-    
+      }
     }
-    
-    
-
-
-    
+  }
 }

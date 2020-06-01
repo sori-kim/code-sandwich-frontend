@@ -12,24 +12,37 @@ import "./Menu_Details.scss";
 class Menu_Details extends React.Component {
   state = {
     sandwich: [],
+    nutirion: [],
   };
 
   componentDidMount() {
-    fetch("http://localhost:3000/data/data.json")
+    fetch("http://10.58.3.228:8000/product/sandwich/?product_id=13")
       .then((res) => res.json())
-      .then((res) => this.setState({ sandwich: res.data }));
+      .then((res) =>
+        this.setState({ sandwich: res.product, nutirion: res.nutirion })
+      );
+    // .then((res) => this.setState({ nutirion: res.nutirion }));
   }
 
   render() {
+    const { sandwich } = this.state;
+    const { nutirion } = this.state;
     return (
       <div className="Menu_Details">
         <div className="sub-header">
           <MenuNav />
           <div className="main">
             <div className="menu-view-wrapper">
-              <MenuTitle sandwich={this.state.sandwich} />
+              <MenuTitle
+                name={sandwich.name}
+                eng={sandwich.name_en}
+                cal={nutirion.calories_kcal}
+              />
               <OrderButton />
-              <MenuSelector />
+              <MenuSelector
+                image={sandwich.image_url}
+                des={sandwich.description}
+              />
               <MenuRecipe />
               <CommonChart />
               <CommonRules />
