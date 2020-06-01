@@ -4,8 +4,8 @@
   font-family: $subwayFont;
   background-color: $fontYellow;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  height: 100vh;
 
   .login-wrap {
     max-width: 600px;
@@ -15,8 +15,9 @@
     margin: 100px auto 400px;
     border: 2px solid $fontYellow;
     border-radius: 10px;
-    padding: 50px;
+    padding: 50px 100px;
     background-color: #ffffff;
+    height: calc(100vh-200px);
 
     .input-info {
       display: flex;

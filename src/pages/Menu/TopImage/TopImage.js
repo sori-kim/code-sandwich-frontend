@@ -1,10 +1,12 @@
 import React, {Component} from "react";
 import "./TopImage.scss";
 
+
 class TopImage extends Component {
     
     render(){
         return(
+        <div>
           <div className="topImage">
             <div className="topNav">
               <ul>
@@ -16,13 +18,19 @@ class TopImage extends Component {
               </ul>
             </div>
             <hr />
-            <div className="title">
-              <h2>Sandwich</h2>
-              <p>전세계 넘버원 브랜드 Subway!
-                <br />50년 전통의 세계 최고의 샌드위치를 맛보세요!
-              </p>
+            <div className="upup">
+              <div className="title">
+                <h2>Sandwich</h2>
+                <p>전세계 넘버원 브랜드 Subway!
+                  <br />50년 전통의 세계 최고의 샌드위치를 맛보세요!
+                </p>
+              </div>
+              <div className="fadeInUP">
+                <img src="http://subway.co.kr/images/menu/img_visual_sandwich.jpg" alt="탑이미지" />
+              </div>
             </div>
           </div>
+        </div>
         )
     }
 }
