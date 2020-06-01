@@ -55,6 +55,7 @@ export default class Custom extends React.Component {
                 onClick={this.handleToppings}
                 className="bread_top"
                 // src={default_ingredients[0].image_url}
+                src="https://media.subway.com/digital/Account_Updates/Assets/App-Base/Web_Images/SubwayCanada/en-ca/Options/o_BreadItalian_customizer_large.png"
                 alt="bread"
               />
               <img
@@ -83,7 +84,7 @@ export default class Custom extends React.Component {
             </div>
           </div>
         </div>
-        <Footer />
+        {/* <Footer /> */}
       </>
     );
   }
