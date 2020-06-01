@@ -11,7 +11,7 @@ class MenuSection extends React.Component {
   };
 
   componentDidMount() {
-    fetch("http://10.58.2.50:8000/product/sandwich")
+    fetch("http://10.58.3.228:8000/product/sandwich")
       .then((res) => res.json())
       .then((res) =>
         this.setState({
@@ -75,16 +75,14 @@ class MenuSection extends React.Component {
           </li>
         </ul>
         <Slider ref={(slider) => (this.slider = slider)} {...settings}>
-          filtered_sandwich.map((sandwich) =>{" "}
-          {
+          {filtered_sandwich.map((sandwich) => (
             <MenuItem
               key={sandwich.id}
               image={sandwich.image_url}
               name={sandwich.name}
               summary={sandwich.description}
             />
-          }
-          );
+          ))}
         </Slider>
       </div>
     );
