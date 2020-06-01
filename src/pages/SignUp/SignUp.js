@@ -1,5 +1,7 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
 import "./SignUp.scss";
 
 class SignUp extends React.Component {
@@ -98,59 +100,68 @@ class SignUp extends React.Component {
     console.log(this.state.name);
 
     return (
-      <div className="SignUp">
-        {/* 헤더 컴포넌트 */}
-        <div className="signup-wrap">
-          <div className="input-info">
-            <strong className="advise">개인 정보를 입력하세요.</strong>
-            <input
-              className="input-box"
-              onChange={this.typed}
-              type="email"
-              placeholder="이메일"
-              value={this.state.email}
-              name="email"
-              onChange={this.handleInput}
-            />
-            {/* {this.renderFeedbackMessageEmail()} */}
-            <div className="invalid-feedback">{this.state.wrongEmail}</div>
-            <input
-              className="input-box"
-              type="text"
-              placeholder="이름"
-              value={this.state.name}
-              name="name"
-              onChange={this.handleInput}
-            />
-            <input
-              className="input-box"
-              type="tel"
-              placeholder="전화번호"
-              value={this.state.tel}
-              name="tel"
-              onChange={this.handleInput}
-            />
-            <input
-              className="input-box"
-              type="password"
-              placeholder="비밀번호 입력(6자리 이상)"
-              value={this.state.pw1}
-              onChange={this.handleInput}
-              name="pw1"
-            />
-            <input
-              className="input-box"
-              type="password"
-              placeholder="비밀번호 재입력"
-              value={this.state.pw2}
-              onChange={this.handleInput}
-              name="pw2"
-            />
-            {this.renderFeedbackMessage()}
-            <button onClick={this.signupHandler} className="signup-bt">
-              가입하기
-            </button>
+      <div className="signp-main">
+        <div className="SignUp">
+          <div className="signup-wrap">
+            <div className="input-info">
+              <img
+                src="https://id-content.subway.com/content/assets/images/logo-myrewards/Subway-MyWayRewards.png?v=d5b4027e-c994-4fd8-ba0f-9d53dd0c7437"
+                alt="reward"
+              ></img>
+              <div className="label">이메일</div>
+              <input
+                className="input-box"
+                onChange={this.typed}
+                type="email"
+                placeholder="이메일"
+                value={this.state.email}
+                name="email"
+                onChange={this.handleInput}
+              />
+              <div className="invalid-feedback">{this.state.wrongEmail}</div>
+              <div className="label">이름</div>
+              <input
+                className="input-box"
+                type="text"
+                placeholder="이름"
+                value={this.state.name}
+                name="name"
+                onChange={this.handleInput}
+              />
+              <div className="label">전화번호</div>
+              <input
+                className="input-box"
+                type="tel"
+                placeholder="전화번호"
+                value={this.state.tel}
+                name="tel"
+                onChange={this.handleInput}
+              />
+              <div className="label">비밀번호</div>
+              <input
+                className="input-box"
+                type="password"
+                placeholder="비밀번호(6자리 이상)"
+                value={this.state.pw1}
+                onChange={this.handleInput}
+                name="pw1"
+              />
+              <div className="label">비밀번호 재입력</div>
+              <input
+                className="input-box"
+                type="password"
+                placeholder="비밀번호 재입력(6자리 이상)"
+                value={this.state.pw2}
+                onChange={this.handleInput}
+                name="pw2"
+              />
+              {this.renderFeedbackMessage()}
+              <button onClick={this.signupHandler} className="signup-bt">
+                가입하기
+              </button>
+            </div>
           </div>
+          <Footer />
         </div>
       </div>
     );

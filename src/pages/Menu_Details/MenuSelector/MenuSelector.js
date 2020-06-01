@@ -22,10 +22,7 @@ class MenuSelector extends React.Component {
         <div className="MenuSelector">
           <div className="menu-info">
             <div className="menu-img">
-              <img
-                alt="vegi"
-                src="http://subway.co.kr/images/menu/sandwich_fl06.jpg"
-              />
+              <img alt="vegi" src={this.props.image} />
               <div className="MenuRotate">
                 <div className="menu_nav_prev">
                   <div
@@ -72,9 +69,7 @@ class MenuSelector extends React.Component {
               <span>로세터리 치킨</span>
             </Link>
           </div>
-          <p className="summary">
-            갓 구운 빵과 신선한 7가지 야채로 즐기는 깔끔한 한끼
-          </p>
+          <p className="summary">{this.props.des}</p>
         </div>
       </div>
     );
