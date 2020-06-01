@@ -36,7 +36,7 @@ class Menu_Details extends React.Component {
               <MenuTitle
                 name={sandwich.name}
                 eng={sandwich.name_en}
-                cal={nutirion.calories_kcal}
+                // cal={nutirion.calories_kcal}
               />
               <OrderButton />
               <MenuSelector
