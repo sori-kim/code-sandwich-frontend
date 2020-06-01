@@ -2,26 +2,25 @@ import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import "./MenuBox.scss";
 import "../../../styles/reset.scss";
-
 class MenuBox extends Component {
   state = {
     animation: false,
   };
-
   animationON = (e) => {
     console.log("바뀐다");
     this.setState({ animation: true });
   };
-
   animationOff = (e) => {
     this.setState({ animation: false });
   };
-
+  goToVeggie = (e) => {
+    this.props.history.push("/menu_details");
+  };
   render() {
     return (
-      //<Link to="/menu_details">
       <div
         className="menuBoxWrap"
+        onClick={this.goToVeggie}
         onMouseEnter={this.animationON}
         onMouseLeave={this.animationOff}
       >
@@ -46,9 +45,7 @@ class MenuBox extends Component {
           />
         </div>
       </div>
-      //</Link>
     );
   }
 }
-
-export default MenuBox;
+export default withRouter(MenuBox);

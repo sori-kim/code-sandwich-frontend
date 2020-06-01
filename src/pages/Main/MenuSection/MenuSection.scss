@@ -4,6 +4,7 @@
   width: 85%;
   margin: 0 auto;
   padding: 100px 0;
+  position: relative;
 
   .title {
     font-size: 40px;
@@ -27,6 +28,42 @@
     }
     .notActive {
       color: $fontGrey;
+    }
+  }
+  .main_button {
+    position: absolute;
+    z-index: 999;
+    display: flex;
+    width: 600px;
+    height: 80px;
+    top: -5%;
+    left: 50%;
+    font-size: 23px;
+    font-weight: 700;
+    cursor: pointer;
+
+    img {
+      width: 40px;
+      height: 40px;
+    }
+
+    .button_order {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $fontGreen;
+      width: 300px;
+      color: $fontWhite;
+      border-radius: 35px 0 0 0;
+    }
+    .button_map {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $fontYellow;
+      width: 300px;
+      color: rgba(0, 0, 0, 1);
+      border-radius: 0 0 35px 0;
     }
   }
 }

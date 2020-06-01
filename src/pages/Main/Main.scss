@@ -1,43 +1,11 @@
 @import "../../styles/common";
 
 .Main {
+  min-width: 1200px;
+  max-width: 2000px;
   background-color: $fontWhite;
   font-family: $subwayFont;
-  position: relative;
-  .main_button {
-    position: absolute;
-    z-index: 999;
-    display: flex;
-    width: 600px;
-    height: 80px;
-    top: 22%;
-    left: 47%;
-    font-size: 23px;
-    font-weight: 700;
-    cursor: pointer;
-
-    img {
-      width: 40px;
-      height: 40px;
-    }
-
-    .button_order {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: $fontGreen;
-      width: 300px;
-      color: $fontWhite;
-      border-radius: 35px 0 0 0;
-    }
-    .button_map {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: $fontYellow;
-      width: 300px;
-      color: rgba(0, 0, 0, 1);
-      border-radius: 0 0 35px 0;
-    }
+  .Event {
+    width: 100%;
   }
 }

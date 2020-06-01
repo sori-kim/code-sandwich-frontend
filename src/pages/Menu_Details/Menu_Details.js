@@ -11,22 +11,18 @@ import CommonRules from "./CommonRules/CommonRules";
 import Footer from "../../components/Footer/Footer";
 import "./Menu_Details.scss";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
-
 class Menu_Details extends React.Component {
   state = {
     sandwich: [],
     nutirion: [],
   };
-
   componentDidMount() {
     fetch("http://10.58.3.228:8000/product/sandwich/?product_id=13")
       .then((res) => res.json())
       .then((res) =>
         this.setState({ sandwich: res.product, nutirion: res.nutirion })
       );
-    // .then((res) => this.setState({ nutirion: res.nutirion }));
   }
-
   render() {
     const { sandwich } = this.state;
     const { nutirion } = this.state;
@@ -41,7 +37,7 @@ class Menu_Details extends React.Component {
                 <MenuTitle
                   name={sandwich.name}
                   eng={sandwich.name_en}
-                  cal={nutirion.calories_kcal}
+                  // cal={nutirion.calories_kcal}
                 />
                 <OrderButton />
                 <MenuSelector
@@ -60,5 +56,4 @@ class Menu_Details extends React.Component {
     );
   }
 }
-
 export default Menu_Details;
