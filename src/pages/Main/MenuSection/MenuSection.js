@@ -2,6 +2,8 @@ import React from "react";
 import MenuItem from "../MenuSection/MenuItem/MenuItem";
 import Slider from "react-slick";
 import "./MenuSection.scss";
+import map from "../../../images/icon_map.png";
+import franchise from "../../../images/icon_franchise.png";
 
 class MenuSection extends React.Component {
   state = {
@@ -74,6 +76,16 @@ class MenuSection extends React.Component {
             <a>아침메뉴</a>
           </li>
         </ul>
+        <div className="main_button">
+          <a className="button_order">
+            <img src={franchise} alt="icon" />
+            <p>주문하기</p>
+          </a>
+          <a className="button_map">
+            <img src={map} alt="icon" />
+            <p>매장찾기</p>
+          </a>
+        </div>
         <Slider ref={(slider) => (this.slider = slider)} {...settings}>
           {filtered_sandwich.map((sandwich) => (
             <MenuItem

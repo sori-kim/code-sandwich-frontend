@@ -18,7 +18,7 @@ class Nav extends React.Component {
           <div class="dropdown-content">
             <div class="row">
               <div class="column">
-                <Link to="menu">
+                <Link to="/menu">
                   <a href="#">샌드위치</a>
                 </Link>
               </div>
@@ -31,7 +31,9 @@ class Nav extends React.Component {
                 <a href="#">써브웨이 역사</a>
               </div>
               <div class="column">
-                <a href="#">주문하기</a>
+                <Link to="/menu">
+                  <a href="#">주문하기</a>
+                </Link>
               </div>
             </div>
           </div>
