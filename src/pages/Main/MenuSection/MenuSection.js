@@ -6,65 +6,35 @@ import "./MenuSection.scss";
 class MenuSection extends React.Component {
   state = {
     sandwich: [],
-    new_sandwich: [],
-    cl_sandwich: [],
-    fl_sandwich: [],
-    pm_sandwich: [],
-    bf_sandwich: [],
-    id: "",
+    filtered_sandwich: [],
+    isActive: 1,
   };
 
   componentDidMount() {
-    fetch("/data/data.json")
+    fetch("http://10.58.3.228:8000/product/sandwich")
       .then((res) => res.json())
-      .then((res) => this.setState({ sandwich: res.data }))
       .then((res) =>
         this.setState({
-          cl_sandwich: this.state.sandwich.filter((res) =>
-            res.id.includes("cl")
-          ),
-          fl_sandwich: this.state.sandwich.filter((res) =>
-            res.id.includes("fl")
-          ),
-          pm_sandwich: this.state.sandwich.filter((res) =>
-            res.id.includes("pm")
-          ),
-          bf_sandwich: this.state.sandwich.filter((res) =>
-            res.id.includes("bf")
-          ),
-          new_sandwich: this.state.sandwich.filter((res) =>
-            res.id.includes("cl")
+          sandwich: res.sandwiches,
+          filtered_sandwich: res.sandwiches.filter(
+            (item) => item.subcategory_id === 1
           ),
         })
       );
   }
 
-  handleOnClick = (e) => {
-    const category = e.target.innerText;
-    let arr = [];
-    if (category === "클래식") {
-      arr = this.state.cl_sandwich;
-    } else if (category === "프레쉬&라이트") {
-      arr = this.state.fl_sandwich;
-    } else if (category === "프리미엄") {
-      arr = this.state.pm_sandwich;
-    } else {
-      arr = this.state.bf_sandwich;
-    }
-    this.setState({ new_sandwich: arr });
+  handleOnClick = (menu) => {
+    const { sandwich } = this.state;
+    this.setState({
+      filtered_sandwich: sandwich.filter(
+        (item) => item.subcategory_id === menu
+      ),
+      isActive: menu,
+    });
   };
 
   render() {
-    console.log("같나?", this.state.new_sandwich === this.state.cl_sandwich);
-    console.log("new_sandwich", this.state.new_sandwich);
-    console.log("cl_sandwich", this.state.cl_sandwich);
-    const {
-      new_sandwich,
-      cl_sandwich,
-      fl_sandwich,
-      pm_sandwich,
-      bf_sandwich,
-    } = this.state;
+    const { sandwich, filtered_sandwich, isActive } = this.state;
     const settings = {
       dots: true,
       arrows: true,
@@ -75,48 +45,44 @@ class MenuSection extends React.Component {
       slidesToScroll: 4,
     };
 
-    const sandwich_map = this.state.new_sandwich.map((sandwich) => {
-      return (
-        <MenuItem
-          key={sandwich.id}
-          image={sandwich.image}
-          name={sandwich.name}
-          summary={sandwich.summary}
-        />
-      );
-    });
-
     return (
       <div className="MenuSection">
         <div className="title">Subway's Menu</div>
         <ul className="category">
           <li
-            onClick={this.handleOnClick}
-            className={new_sandwich === cl_sandwich ? "isActive" : "notActive"}
+            onClick={() => this.handleOnClick(1)}
+            className={isActive === 1 ? "isActive" : "notActive"}
           >
             <a>클래식</a>
           </li>
           <li
-            onClick={this.handleOnClick}
-            className={new_sandwich === fl_sandwich ? "isActive" : "notActive"}
+            onClick={() => this.handleOnClick(2)}
+            className={isActive === 2 ? "isActive" : "notActive"}
           >
             <a>프레쉬&라이트</a>
           </li>
           <li
-            onClick={this.handleOnClick}
-            className={new_sandwich === pm_sandwich ? "isActive" : "notActive"}
+            onClick={() => this.handleOnClick(3)}
+            className={isActive === 3 ? "isActive" : "notActive"}
           >
             <a>프리미엄</a>
           </li>
           <li
-            onClick={this.handleOnClick}
-            className={new_sandwich === bf_sandwich ? "isActive" : "notActive"}
+            onClick={() => this.handleOnClick(4)}
+            className={isActive === 4 ? "isActive" : "notActive"}
           >
             <a>아침메뉴</a>
           </li>
         </ul>
         <Slider ref={(slider) => (this.slider = slider)} {...settings}>
-          {sandwich_map}
+          {filtered_sandwich.map((sandwich) => (
+            <MenuItem
+              key={sandwich.id}
+              image={sandwich.image_url}
+              name={sandwich.name}
+              summary={sandwich.description}
+            />
+          ))}
         </Slider>
       </div>
     );

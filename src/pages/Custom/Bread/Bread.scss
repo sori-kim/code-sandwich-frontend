@@ -1,48 +1,54 @@
 @import "../../../styles/common";
 
-.Bread {
-  display: flex;
-  justify-content: space-around;
-  width: 70%;
-  height: 100%;
-  margin: 0 auto;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  height: 100%;
-
-  .title {
-    @include mainTitle;
-    color: black;
-  }
-  .cals {
-    @include mainTitle;
-    color: grey;
-  }
-
-  .not_burn {
-    background-color: grey;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    padding: 5px;
-    position: absolute;
-    z-index: 9;
-    top: 260px;
-    cursor: pointer;
-  }
-
-  .burn {
-    background-color: #dd3705;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    padding: 5px;
-    //   position: absolute;
-    z-index: 9;
-    top: 260px;
-    cursor: pointer;
+.custom_wrapper {
+  .Bread {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    height: 500px;
+    font-family: $subwayFont;
+    .bread_title {
+      color: black;
+      font-weight: 700;
+      font-size: 28px;
+    }
+    .bread_cals {
+      font-size: 30px;
+      font-weight: 700;
+      color: grey;
+    }
+    img {
+      width: 70%;
+    }
+    .notBurn {
+      background-color: grey;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      padding: 10px;
+      position: absolute;
+      z-index: 9;
+      cursor: pointer;
+    }
+    .burnActive {
+      background-color: #dd3705;
+    }
+    .toasted {
+      font-size: 20px;
+      font-weight: 800;
+      color: rgba(0, 0, 0, 0.7);
+      padding-left: 50px;
+      margin: 30px 0;
+    }
+    button {
+      padding: 12px 120px;
+      margin-bottom: 15px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      background-color: $subwayGreen;
+      color: $fontWhite;
+    }
   }
 }
