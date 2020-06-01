@@ -3,8 +3,10 @@
 
 .menuBoxWrap{
     position: relative; //summaryBox 위치 설정
+    cursor: pointer;
     .menuBox {
-        width: 370px;
+        //width: 87.19%;
+        width: 370px; //원래 width 값
         height: 330px;
         background-color: #ffffff;
         text-align: center;

@@ -8,12 +8,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
-    img {
+    position: relative;
+    cursor: pointer;
+    .menu_img {
       width: 100%;
-      &:hover {
-        transform: scale(1.2);
-      }
     }
     .menu_name {
       font-weight: 500;
@@ -26,6 +24,28 @@
       color: rgba(0, 0, 0, 0.4);
       line-height: 16px;
       width: 80%;
+    }
+    .i_explore {
+      position: absolute;
+      display: none;
+      // top: 200px;
+      width: 35%;
+    }
+  }
+
+  .activeHover {
+    .menu_img {
+      transform: scale(1.2);
+    }
+    .menu_desc {
+      display: none;
+    }
+    .menu_name {
+      font-size: 27px;
+      z-index: 99;
+    }
+    .i_explore {
+      display: block;
     }
   }
 }

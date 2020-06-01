@@ -1,8 +1,8 @@
 import React, {Component} from "react";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
-import OrderDetail from "./OrderDetail";
-import OrderSummary from "./OrderSummary";
+import OrderDetail from "./OrderDetail/OrderDetail";
+import OrderSummary from "./OrderSummary/OrderSummary";
 import "./Shop.scss";
 
 class Shop extends Component{

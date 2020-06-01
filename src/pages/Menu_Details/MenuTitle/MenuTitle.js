@@ -12,9 +12,9 @@ class MenuTitle extends React.Component {
           </a>
           <button className="selectbt" type="button"></button>
         </div>
-        <h2 className="name">베지</h2>
-        <p className="eng">Veggie Delight</p>
-        <p className="cal">230 kcal</p>
+        <h2 className="name">{this.props.name}</h2>
+        <p className="eng">{this.props.eng}</p>
+        <p className="cal">{this.props.cal} kcal</p>
         <div className="sns">
           <a className="fb" href="#" alt="facebooklink"></a>
           <a className="url" href="#" alt="copyUrl"></a>

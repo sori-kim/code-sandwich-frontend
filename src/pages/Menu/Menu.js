@@ -3,13 +3,15 @@ import MenuList from "./MenuList/MenuList";
 import TopImage from "./TopImage/TopImage";
 import Middle from "./Middle/Middle";
 import Header from "../../components/Header/Header";
-import Nav from "../../components/Nav/Nav";
+// import Nav from "../../components/Nav/Nav";
 import Footer from "../../components/Footer/Footer";
 import "./Menu.scss";
 
 class Menu extends Component {
     state = {
         sandwich: [],
+        //filtered_sandwich: [], 코드 리팩터링 중
+        //isActive: 1         코드 리팩터링 중
         new_sandwich: [],
         cl_sandwich: [],
         fl_sandwich: [],
@@ -19,28 +21,28 @@ class Menu extends Component {
     }
 
     componentDidMount() {
-      fetch("/data/data.json")
+      fetch("http://10.58.3.228:8000/product/sandwich")
         .then((res) => res.json())
-        .then((res) => this.setState({ sandwich: res.data }))
+        .then((res) => this.setState({ sandwich: res.sandwiches}))
         .then((res) =>
           this.setState({
             new_sandwich: this.state.sandwich,
             cl_sandwich: this.state.sandwich.filter((res) =>
-              res.id.includes("cl")
+              res.subcategory_id === 1
             ),
             fl_sandwich: this.state.sandwich.filter((res) =>
-              res.id.includes("fl")
+              res.subcategory_id === 2
             ),
             pm_sandwich: this.state.sandwich.filter((res) =>
-              res.id.includes("pm")
+              res.subcategory_id ===3
             ),
             bf_sandwich: this.state.sandwich.filter((res) =>
-              res.id.includes("bf")
+              res.subcategory_id === 4
             ),
           })
-        );
+        )
     }
-
+    
     handleOnClick = (e) => {
       const category = e.target.innerText;
       let arr = [];
@@ -57,17 +59,37 @@ class Menu extends Component {
       }
       this.setState({ new_sandwich: arr });
     };
+    
+    /*코드 리팩터링 중
+    componentDidMount() {
+      fetch("http://10.58.3.228:8000/product/sandwich")
+        .then(res => res.json())
+        .then(res =>
+          this.setState({
+            sandwich: res.sandwiches,
+            filtered_sandwich: res.sandwiches
+       })
+      );
+    }
 
+    handleOnClick = (menu) => {
+      const {sandwich} = this.state;
+      this.setState({
+        filtered_sandwich: sandwich.filter( (item) => item.subcategory_id === menu),
+        isActive: menu
+      })
+    }
+    */
     render(){
      const {
       sandwich,
       new_sandwich,
+      filtered_sandwich,
       cl_sandwich,
       fl_sandwich,
       pm_sandwich,
       bf_sandwich,
     } = this.state;
-
         return(
           <div>
             <Header />
