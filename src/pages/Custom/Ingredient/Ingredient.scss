@@ -1,0 +1,15 @@
+@import "../../../styles/common";
+
+.Ingredient {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 15%;
+
+  img {
+    width: 80%;
+    &:first-child {
+      cursor: pointer;
+    }
+  }
+}

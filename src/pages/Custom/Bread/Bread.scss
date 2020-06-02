@@ -3,24 +3,25 @@
 .custom_wrapper {
   .Bread {
     display: flex;
+    height: 70%;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     margin: 0 auto;
-    height: 500px;
     font-family: $subwayFont;
+
     .bread_title {
       color: black;
       font-weight: 700;
       font-size: 28px;
     }
     .bread_cals {
-      font-size: 30px;
+      font-size: 25px;
       font-weight: 700;
       color: grey;
     }
     img {
-      width: 70%;
+      width: 80%;
     }
     .notBurn {
       background-color: grey;
@@ -28,7 +29,6 @@
       height: 50px;
       border-radius: 50%;
       padding: 10px;
-      position: absolute;
       z-index: 9;
       cursor: pointer;
     }
@@ -39,8 +39,6 @@
       font-size: 20px;
       font-weight: 800;
       color: rgba(0, 0, 0, 0.7);
-      padding-left: 50px;
-      margin: 30px 0;
     }
     button {
       padding: 12px 120px;

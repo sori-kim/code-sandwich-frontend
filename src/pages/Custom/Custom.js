@@ -2,25 +2,21 @@ import React from "react";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import OrderBox from "../../components/OrderBox/OrderBox";
+import Ingredient from "./Ingredient/Ingredient";
 import Bread from "../Custom/Bread/Bread";
-import { faBurn } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Custom.scss";
 
-const toppings = {
-  // 0: <Ingredients />,
-  1: <Bread />,
-};
 export default class Custom extends React.Component {
   state = {
     isActive: false,
-    activeTab: 0,
-    default_ingredients: "",
+    isShown: "noshow_bread",
+    default_ingredients: [],
+    image_url: [],
   };
 
   componentDidMount() {
     fetch(
-      "http://10.58.3.228:8000/product/sandwich/customization/?product_id=5"
+      `http://10.58.1.217:8000/product/sandwich/customization/?product_id=${this.props.match.params.key}`
     )
       .then((res) => res.json())
       .then((res) =>
@@ -28,61 +24,50 @@ export default class Custom extends React.Component {
       );
   }
 
-  handleToppings = (num) => {
-    this.setState({ activeTab: num });
+  looksgood = () => {
+    this.setState({
+      isShown: "noshow_bread",
+    });
+  };
+
+  handleIngredients = () => {
+    this.setState({
+      isShown: "show_bread",
+    });
   };
 
   render() {
-    console.log(this.state);
+    console.log(this.state.default_ingredients);
 
     return (
       <>
         <Header />
         <div className="Custom">
           <div className="custom_wrapper">
-            {toppings[this.state.activeTab]}
+            <Bread
+              isShown={this.state.isShown === "show_bread"}
+              handleGood={this.looksgood}
+            />
             <div
               className={
-                this.state.activeTab === 1 ? "away_ingredients" : "ingredients"
+                this.state.isShown === "show_bread"
+                  ? "away_ingredients"
+                  : "ingredients"
               }
             >
-              {this.state.default_ingredients.map((topping) => (
-                <img src={topping.image_url} alt="topping" />
+              {this.state.default_ingredients.map((things) => (
+                <Ingredient
+                  image={things.image_url}
+                  handleIngredients={this.handleIngredients}
+                />
               ))}
-              {/* <img
-                onClick={this.handleToppings}
-                className="bread_top"
-                // src={default_ingredients[0].image_url}
-                src="https://media.subway.com/digital/Account_Updates/Assets/App-Base/Web_Images/SubwayCanada/en-ca/Options/o_BreadItalian_customizer_large.png"
-                alt="bread"
-              />
-              <img
-                className="toppings"
-                src="https://media.subway.com/digital/Account_Updates/Assets/App-Base/Web_Images/Subway/en-us/OptionsIds/10133_customizer_large.png"
-                alt="topping"
-              />
-              <img
-                className="toppings"
-                src="https://media.subway.com/digital/Account_Updates/Assets/App-Base/Web_Images/Subway/en-us/OptionsIds/10132_customizer_large.png"
-                alt="topping"
-              />
-              <img
-                className="toppings"
-                src="https://media.subway.com/digital/Account_Updates/Assets/App-Base/Web_Images/Subway/en-us/Options/o_Bacon_customizer_large.png"
-                alt="topping"
-              />
-              <img
-                className="bread_bottom"
-                src="https://media.subway.com/digital/Account_Updates/Assets/App-Base/Web_Images/Subway/en-us/Options/o_BreadItalian_customizer_large_bottom.png"
-                alt="bread"
-              /> */}
             </div>
             <div className="orderbox_wrapper">
               <OrderBox />
             </div>
           </div>
         </div>
-        {/* <Footer /> */}
+        <Footer />
       </>
     );
   }

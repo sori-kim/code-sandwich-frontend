@@ -1,0 +1,72 @@
+@import "../../../styles/common";
+
+.orderDetail{
+    color: #545454;
+    font-family: $subwayFont;
+    font-size: 16px;
+    padding-bottom: 5%;
+    .orderHeader{           //홈페이지에선 ul/li 태그를 이용. 왜?
+        display: flex;
+        justify-content: space-between;
+        font-weight: bold;
+        padding-bottom: 2%;
+        .menutName{
+           margin: 0 29px 0 0;
+        }
+        .foldingBtn{
+            border: none;
+            background-color: #ffffff;
+            color: $subwayGreen;
+            font-weight: bold;  //상속 못 받나?
+        }
+        .eachPrice{
+
+        }
+        .btnSet{
+            .modifyBtn{
+                border: none;
+                background-color: #ffffff;
+                color: $subwayGreen;
+                font-weight: bold;
+            }
+            .addBtn{
+                border: none;
+                background-color: #ffffff;
+                color: $subwayGreen;
+                font-weight: bold;
+            }
+            .removeBtn{
+                border: none;
+                background-color: #ffffff;
+                color: $subwayGreen;
+                font-weight: bold;
+            }
+        }
+    }
+    .orderMiddle{
+        font-size: 14px;
+        font-weight: 300;
+        color: #545454;
+        width: 60%;
+        padding-bottom: 2%;
+    }
+    .orderFooter{
+        display: flex;
+        .mam{
+            color: #4c006a;
+            border: 1px solid #4c006a;
+            border-radius: 13px;
+            font-size: 13px;
+            font-weight: 500;
+            background-color: #ffffff;
+            padding: 0 22px;
+        }
+        .simpleInfo{
+            margin-left: 10px;
+            font-size: 13px;
+            font-weight: 300;
+            color: #545454;
+            padding: 0 6px;
+        }
+    }
+}

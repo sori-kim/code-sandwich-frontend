@@ -5,9 +5,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Bread.scss";
 
 export default class Bread extends React.Component {
-  state = {
-    isActive: false,
-  };
+  constructor() {
+    super();
+    this.state = {
+      isActive: false,
+    };
+  }
 
   handleBurn = () => {
     this.state.isActive
@@ -24,7 +27,10 @@ export default class Bread extends React.Component {
       slidesToScroll: 1,
     };
     return (
-      <div className="Bread">
+      <div
+        className="Bread"
+        style={{ display: this.props.isShown ? "flex" : "none" }}
+      >
         {/* <Slider {...settings}> */}
 
         <div className="bread_title">Italian</div>
@@ -44,7 +50,7 @@ export default class Bread extends React.Component {
           />
         </a>
         <div className="toasted">Toasted</div>
-        <button onClick={this.handleGood}>Looks Good</button>
+        <button onClick={this.props.handleGood}>Looks Good</button>
         {/* </Slider> */}
       </div>
     );
