@@ -15,17 +15,24 @@ class Menu_Details extends React.Component {
   state = {
     sandwich: [],
     nutirion: [],
+    id: ""
   };
+
+ 
   componentDidMount() {
-    fetch("http://10.58.3.228:8000/product/sandwich/?product_id=13")
+    //const {params} = this.props.match
+    //this.setState({ id: params.key})
+    //const {num} = this.state.id
+    fetch(`http://10.58.1.217:8000/product/sandwich/?product_id=${this.props.match.params.key}`)
       .then((res) => res.json())
       .then((res) =>
-        this.setState({ sandwich: res.product, nutirion: res.nutirion })
+        this.setState({ sandwich: res.product, nutirion: res.nutrition })
       );
   }
   render() {
     const { sandwich } = this.state;
     const { nutirion } = this.state;
+    console.log(this.state, this.props)
     return (
       <>
         <Header />
@@ -37,7 +44,7 @@ class Menu_Details extends React.Component {
                 <MenuTitle
                   name={sandwich.name}
                   eng={sandwich.name_en}
-                  // cal={nutirion.calories_kcal}
+                  cal={nutirion.calories_kcal}
                 />
                 <OrderButton />
                 <MenuSelector

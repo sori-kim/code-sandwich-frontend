@@ -8,6 +8,7 @@ import Menu_Details from "./pages/Menu_Details/Menu_Details";
 import Toppings from "./pages/Toppings/Toppings";
 import Custom from "./pages/Custom/Custom";
 import Bread from "./pages/Custom/Bread/Bread";
+import Shop from "../src/pages/Shop/Shop";
 
 class Routes extends React.Component {
   render() {
@@ -18,10 +19,11 @@ class Routes extends React.Component {
           <Route exact path="/menu" component={Menu} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={SignUp} />
-          <Route exact path="/menu_details" component={Menu_Details} />
+          <Route exact path="/menu_details/:key" component={Menu_Details} />
           <Route exact path="/toppings" component={Toppings} />
           <Route exact path="/custom" component={Custom} />
           <Route exact path="/bread" component={Bread} />
+          <Route exact path="/shop" component={Shop} />
         </Switch>
       </Router>
     );

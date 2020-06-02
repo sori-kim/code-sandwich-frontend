@@ -2,21 +2,24 @@ import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import "./MenuBox.scss";
 import "../../../styles/reset.scss";
+
+
 class MenuBox extends Component {
   state = {
     animation: false,
+    id: ""
   };
   animationON = (e) => {
     console.log("바뀐다");
-    this.setState({ animation: true });
+    this.setState({ animation: true, id: this.props.id});
   };
   animationOff = (e) => {
     this.setState({ animation: false });
   };
-  goToVeggie = (e) => {
-    this.props.history.push("/menu_details");
-  };
+
+
   render() {
+    console.log(this.state);
     return (
       <div
         className="menuBoxWrap"
@@ -24,6 +27,7 @@ class MenuBox extends Component {
         onMouseEnter={this.animationON}
         onMouseLeave={this.animationOff}
       >
+         <Link to={`/menu_details/${this.state.id}`} className="menuTo">
         <div className="menuBox">
           <div className="menuImg">
             <img alt="We are sorry" src={this.props.image} />
@@ -44,8 +48,11 @@ class MenuBox extends Component {
             alt="자세히보기"
           />
         </div>
+        </Link>
       </div>
+    
     );
   }
 }
+
 export default withRouter(MenuBox);
