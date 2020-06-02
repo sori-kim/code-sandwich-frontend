@@ -15,21 +15,24 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 class Menu_Details extends React.Component {
   state = {
     sandwich: [],
-    nutirion: [],
+    nutrition: [],
+    same_category_sandwich: [],
+    id: "",
   };
 
   componentDidMount() {
-    fetch("http://10.58.3.228:8000/product/sandwich/?product_id=13")
+    fetch(
+      `http://10.58.1.217:8000/product/sandwich/?product_id=${this.props.match.params.key}`
+    )
       .then((res) => res.json())
       .then((res) =>
-        this.setState({ sandwich: res.product, nutirion: res.nutirion })
+        this.setState({ sandwich: res.product, nutrition: res.nutrition })
       );
-    // .then((res) => this.setState({ nutirion: res.nutirion }));
   }
 
   render() {
     const { sandwich } = this.state;
-    const { nutirion } = this.state;
+    const { nutrition } = this.state;
     return (
       <>
         <Header />
@@ -41,15 +44,23 @@ class Menu_Details extends React.Component {
                 <MenuTitle
                   name={sandwich.name}
                   eng={sandwich.name_en}
-                  cal={nutirion.calories_kcal}
+                  cal={nutrition.calories_kcal}
                 />
                 <OrderButton />
                 <MenuSelector
                   image={sandwich.image_url}
                   des={sandwich.description}
+                  name={sandwich.name}
                 />
                 <MenuRecipe />
-                <CommonChart />
+                <CommonChart
+                  weight={nutrition.size_g}
+                  kcal={nutrition.calories_kcal}
+                  sugar={nutrition.sugar_g}
+                  protein={nutrition.protein_g}
+                  fat={nutrition.saturated_fat_g}
+                  sodium={nutrition.sodium_g}
+                />
                 <CommonRules />
               </div>
             </div>
