@@ -18,8 +18,8 @@ class OrderDetail extends Component {
                   </div>
                 </div>
                 <div className="orderMiddle">
-                Italian, Not Toasted, Monterey Cheddar (shredded), 
-                Lettuce, Tomatoes, Cucumbers, Green Peppers, Red Onions, Ranch
+                <p>Italian, Not Toasted, Monterey Cheddar (shredded), 
+                Lettuce, Tomatoes, Cucumbers, Green Peppers, Red Onions, Ranch</p>
                 </div>
                 <div className="orderFooter">
                   <button className="mam">Make it a Meal!</button>

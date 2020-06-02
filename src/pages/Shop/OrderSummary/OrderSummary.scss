@@ -2,7 +2,12 @@
 
 .orderSummary{
     font-family: $subwayFont;
-    height: auto;
+    height: 100%;
+    border: 2px solid #dddddd;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 5%;
     .summaryHead{
         width: 80%;
         .summaryTitle{
@@ -42,14 +47,22 @@
         line-height: 1.5;
         width: 80%;
         .subtotal{
+            display: flex;
+            justify-content: space-between;
         }
         .salestax{
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
         }
         hr{
             color: #5a5a5a;
             border: 0.5px dashed #898989;
+            margin-bottom: 1rem;
         }
         .total{
+            display: flex;
+            justify-content: space-between;
             color: $subwayGreen;
             font-size: 18px;
             font-weight: bold;

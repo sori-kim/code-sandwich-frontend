@@ -3,71 +3,62 @@ import MenuList from "./MenuList/MenuList";
 import TopImage from "./TopImage/TopImage";
 import Middle from "./Middle/Middle";
 import Header from "../../components/Header/Header";
-// import Nav from "../../components/Nav/Nav";
 import Footer from "../../components/Footer/Footer";
+import Config from "../../Config";
 import "./Menu.scss";
+
+
+//API주소가 필요한 곳에 Config.해당 api 변수 이름을 넣어주면 됨.
 
 class Menu extends Component {
   state = {
     sandwich: [],
-    new_sandwich: [],
-    cl_sandwich: [],
-    fl_sandwich: [],
-    pm_sandwich: [],
-    bf_sandwich: [],
-    id: "",
+    filtered_sandwich: [],
+    isActive: 0
   };
 
   componentDidMount() {
-    fetch("http://10.58.1.217:8000/product/sandwich")
-      .then((res) => res.json())
-      .then((res) => this.setState({ sandwich: res.sandwiches }))
-      .then((res) =>
-        this.setState({
-          new_sandwich: this.state.sandwich,
-          cl_sandwich: this.state.sandwich.filter(
-            (res) => res.subcategory_id === 1
-          ),
-          fl_sandwich: this.state.sandwich.filter(
-            (res) => res.subcategory_id === 2
-          ),
-          pm_sandwich: this.state.sandwich.filter(
-            (res) => res.subcategory_id === 3
-          ),
-          bf_sandwich: this.state.sandwich.filter(
-            (res) => res.subcategory_id === 4
-          ),
-        })
-      );
+    this.getData();
   }
 
-  handleOnClick = (e) => {
-    const category = e.target.innerText;
-    let arr = [];
-    if (category === "All") {
-      arr = this.state.sandwich;
-    } else if (category === "클래식") {
-      arr = this.state.cl_sandwich;
-    } else if (category === "프레쉬&라이트") {
-      arr = this.state.fl_sandwich;
-    } else if (category === "프리미엄") {
-      arr = this.state.pm_sandwich;
-    } else if (category === "아침메뉴") {
-      arr = this.state.bf_sandwich;
+  getData = () => {
+    fetch(Config.API)
+      .then((res) => res.json())
+      .then((res) =>
+        this.setState({
+          sandwich: res.sandwiches,
+          filtered_sandwich: res.sandwiches
+        })
+      )
+  }
+
+  handleOnClick = (menu) => {
+    console.log("menu : ", menu)
+    const { sandwich, filtered_sandwich } = this.state;
+    if(menu === 0) {
+      this.setState({
+        filtered_sandwich: sandwich,
+        isActive: 0
+      })
+    } else {
+      this.setState({
+        filtered_sandwich: sandwich.filter(
+          (item) => item.subcategory_id === menu
+        ),
+        isActive: menu,
+      })
     }
-    this.setState({ new_sandwich: arr });
-  };
+  }
+ 
 
   render() {
+    console.log(Config)
     const {
       sandwich,
-      new_sandwich,
       filtered_sandwich,
-      cl_sandwich,
-      fl_sandwich,
-      pm_sandwich,
-      bf_sandwich,
+      isActive,
     } = this.state;
+    console.log(this.state)
 
     return (
       <div>
@@ -78,17 +69,14 @@ class Menu extends Component {
           </div>
           <div className="menuMiddle">
             <Middle
-              sandwich={sandwich}
-              new_sandwich={new_sandwich}
-              cl_sandwich={cl_sandwich}
-              fl_sandwich={fl_sandwich}
-              pm_sandwich={pm_sandwich}
-              bf_sandwich={bf_sandwich}
               handleOnClick={this.handleOnClick}
+              sandwich={sandwich}
+              filtered_sandwich={filtered_sandwich}
+              isActive={isActive}
             />
           </div>
           <div className="menuLine">
-            <MenuList sandwich={new_sandwich} />
+            <MenuList sandwich={filtered_sandwich} />
           </div>
         </div>
         <Footer />

@@ -9,8 +9,10 @@ import MenuRecipe from "./MenuRecipe/MenuRecipe";
 import CommonChart from "./CommonChart/CommonChart";
 import CommonRules from "./CommonRules/CommonRules";
 import Footer from "../../components/Footer/Footer";
+import Config from "../../Config";
 import "./Menu_Details.scss";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
+
 class Menu_Details extends React.Component {
   state = {
     sandwich: [],
@@ -20,10 +22,7 @@ class Menu_Details extends React.Component {
 
  
   componentDidMount() {
-    //const {params} = this.props.match
-    //this.setState({ id: params.key})
-    //const {num} = this.state.id
-    fetch(`http://10.58.1.217:8000/product/sandwich/?product_id=${this.props.match.params.key}`)
+    fetch(`${Config.API}/?product_id=${this.props.match.params.key}`)
       .then((res) => res.json())
       .then((res) =>
         this.setState({ sandwich: res.product, nutirion: res.nutrition })
@@ -32,7 +31,7 @@ class Menu_Details extends React.Component {
   render() {
     const { sandwich } = this.state;
     const { nutirion } = this.state;
-    console.log(this.state, this.props)
+
     return (
       <>
         <Header />
