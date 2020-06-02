@@ -1,18 +1,27 @@
 import React from "react";
+import { Link, withRouter } from "react-router-dom";
 import "./MenuItem.scss";
 import explore from "../../../../images/explore.png";
 
-export default class MenuItem extends React.Component {
+export class MenuItem extends React.Component {
   state = {
     isHover: false,
+    id: "",
   };
 
   handleMouseEnter = () => {
     this.setState({ isHover: true });
   };
+
   handleMouseLeave = () => {
     this.setState({ isHover: false });
   };
+
+  handleItemClick = (e) => {
+    this.setState({ id: this.props.id });
+    this.props.history.push("/menu_details");
+  };
+
   render(id, image, name, summary) {
     return (
       <div
@@ -20,6 +29,7 @@ export default class MenuItem extends React.Component {
         key={this.props.id}
         onMouseEnter={this.handleMouseEnter}
         onMouseLeave={this.handleMouseLeave}
+        onClick={this.handleItemClick}
       >
         <img className="menu_img" src={this.props.image} alt="menu" />
         <div className="menu_name">{this.props.name}</div>
@@ -29,3 +39,5 @@ export default class MenuItem extends React.Component {
     );
   }
 }
+
+export default withRouter(MenuItem);

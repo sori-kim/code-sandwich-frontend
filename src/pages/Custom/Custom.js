@@ -33,12 +33,7 @@ export default class Custom extends React.Component {
   };
 
   render() {
-    const { default_ingredients } = this.state;
-    // const {
-    //   ingredient_category_id,
-    //   image_url,
-    // } = this.state.default_ingredients;
-    console.log(this.state.default_ingredients);
+    console.log(this.state);
 
     return (
       <>
@@ -51,7 +46,10 @@ export default class Custom extends React.Component {
                 this.state.activeTab === 1 ? "away_ingredients" : "ingredients"
               }
             >
-              <img
+              {this.state.default_ingredients.map((topping) => (
+                <img src={topping.image_url} alt="topping" />
+              ))}
+              {/* <img
                 onClick={this.handleToppings}
                 className="bread_top"
                 // src={default_ingredients[0].image_url}
@@ -77,7 +75,7 @@ export default class Custom extends React.Component {
                 className="bread_bottom"
                 src="https://media.subway.com/digital/Account_Updates/Assets/App-Base/Web_Images/Subway/en-us/Options/o_BreadItalian_customizer_large_bottom.png"
                 alt="bread"
-              />
+              /> */}
             </div>
             <div className="orderbox_wrapper">
               <OrderBox />
