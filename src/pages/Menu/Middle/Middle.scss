@@ -1,71 +1,72 @@
 @import "../../../styles/_common.scss";
 
 .middle {
-    height: 80px;
-    width: 80%;
-    background-color: #ffffff;
+  height: 80px;
+  width: 80%;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 67%;
+  left: 10%;
+  z-index: 200;
+  cursor: pointer;
+  ul {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 67%;
-    left: 10%;
-    z-index: 200;
-    ul{
-        display: flex;
-        justify-content: space-around;
-        width: 60%;
+    justify-content: space-around;
+    width: 60%;
+    position: relative;
+    display: flex;
+    li {
+      font-size: 16px;
+      font-weight: bold;
+      color: $fontGrey;
+      position: relative;
+      display: flex;
+      span {
+        width: 100%;
+        padding: 0 10px;
         position: relative;
         display: flex;
-        li{
-            font-size: 16px;
-            font-weight: bold;
-            color: $fontGrey;
-            position: relative;
-            display: flex;
-            span{
-                width: 100%;
-                padding: 0 10px;
-                position: relative;
-                display: flex;
-                &::after{
-                    content:'';
-                    position: absolute;
-                    left: 120%;
-                    top: 0px;
-                    width: 1px;
-                    height: 15px;
-                    background-color:#dddddd;
-                }
-            }
+        &::after {
+          content: "";
+          position: absolute;
+          left: 120%;
+          top: 0px;
+          width: 1px;
+          height: 15px;
+          background-color: #dddddd;
         }
-        .all{
-            font-size: 16px;
-            font-weight: bold;
-            color: $fontGreen;
-            position: relative;
-            display: flex;
-        }
-        .plus{
-            font-size: 16px;
-            font-weight: bold;
-            color: #000000;
-            &::after{
-                display: none;
-                content:'|';
-                width : 4px;
-                height : 4px;
-                background-color: #dddddd;
-                left: 0;
-                top: 28px;
-            }
-        }
-        .isActive {
-            color: $fontGreen;
-            font-weight: 600;
-          }
-          .notActive {
-            color: $fontGrey;
-          }
+      }
     }
+    .all {
+      font-size: 16px;
+      font-weight: bold;
+      color: $fontGreen;
+      position: relative;
+      display: flex;
+    }
+    .plus {
+      font-size: 16px;
+      font-weight: bold;
+      color: #000000;
+      &::after {
+        display: none;
+        content: "|";
+        width: 4px;
+        height: 4px;
+        background-color: #dddddd;
+        left: 0;
+        top: 28px;
+      }
+    }
+    .isActive {
+      color: $fontGreen;
+      font-weight: 600;
+    }
+    .notActive {
+      color: $fontGrey;
+    }
+  }
 }
