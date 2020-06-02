@@ -16,12 +16,12 @@ export default class Custom extends React.Component {
     isActive: false,
     activeTab: 0,
     default_ingredients: "",
-    ingredient_category_id: "",
-    image_url: "",
   };
 
   componentDidMount() {
-    fetch("http://10.58.2.50:8000/product/sandwich/customization/?product_id=5")
+    fetch(
+      "http://10.58.3.228:8000/product/sandwich/customization/?product_id=5"
+    )
       .then((res) => res.json())
       .then((res) =>
         this.setState({ default_ingredients: res.default_ingredients })
@@ -33,12 +33,13 @@ export default class Custom extends React.Component {
   };
 
   render() {
-    console.log(this.state);
     const { default_ingredients } = this.state;
-    const {
-      ingredient_category_id,
-      image_url,
-    } = this.state.default_ingredients;
+    // const {
+    //   ingredient_category_id,
+    //   image_url,
+    // } = this.state.default_ingredients;
+    console.log(this.state.default_ingredients);
+
     return (
       <>
         <Header />
@@ -53,7 +54,8 @@ export default class Custom extends React.Component {
               <img
                 onClick={this.handleToppings}
                 className="bread_top"
-                src={image_url}
+                // src={default_ingredients[0].image_url}
+                src="https://media.subway.com/digital/Account_Updates/Assets/App-Base/Web_Images/SubwayCanada/en-ca/Options/o_BreadItalian_customizer_large.png"
                 alt="bread"
               />
               <img
@@ -82,7 +84,7 @@ export default class Custom extends React.Component {
             </div>
           </div>
         </div>
-        <Footer />
+        {/* <Footer /> */}
       </>
     );
   }

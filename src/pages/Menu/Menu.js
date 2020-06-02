@@ -19,7 +19,7 @@ class Menu extends Component {
   };
 
   componentDidMount() {
-    fetch("http://10.58.3.228:8000/product/sandwich")
+    fetch("http://10.58.1.217:8000/product/sandwich")
       .then((res) => res.json())
       .then((res) => this.setState({ sandwich: res.sandwiches }))
       .then((res) =>

@@ -4,13 +4,14 @@
     background-color: #ffffff;
     font-family: $subwayFont;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     hr{
         color: $fontGrey;
     }
     .shopWrap{
         display: flex;
         justify-content: center;
+        height: 80%;
         .leftSection{
             width: 55%;
             padding: 0;
@@ -60,5 +61,8 @@
             width: 25%;
             height: 100%;
         }
+    }
+    .Footer{
+        height: 20%;
     }
 }
