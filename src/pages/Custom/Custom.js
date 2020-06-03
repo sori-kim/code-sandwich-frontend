@@ -13,6 +13,7 @@ export default class Custom extends React.Component {
     default_ingredients: [],
     image_url: [],
     bread: [],
+    cart: [],
   };
 
   componentDidMount() {
@@ -27,18 +28,21 @@ export default class Custom extends React.Component {
       );
   }
 
+  //Looks Good 버튼 눌렀을때 빵 선택 완료되고 커스텀 페이지로 돌아오기
   looksgood = () => {
     this.setState({
       isShown: "noshow_bread",
     });
   };
 
+  //재료 클릭했을때 빵 목록 보여주기
   handleIngredients = () => {
     this.setState({
       isShown: "show_bread",
     });
   };
 
+  //빵 데이터 fetch
   handleBreadFetch = () => {
     fetch("http://10.58.1.217:8000/product/sandwich/customization/bread/")
       .then((res) => res.json())
@@ -52,10 +56,6 @@ export default class Custom extends React.Component {
   };
 
   render() {
-    // console.log("custom this.state", this.state);
-    // console.log("custom this.props", this.props);
-    console.log("bread", this.state.bread);
-
     return (
       <>
         <Header />

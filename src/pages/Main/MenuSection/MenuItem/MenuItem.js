@@ -17,21 +17,23 @@ export class MenuItem extends React.Component {
     this.setState({ isHover: false });
   };
 
-  render(id, image, name, summary) {
+  render() {
+    const { id, isHover } = this.state;
+    const { props_id, image, name, summary } = this.props;
     return (
-      <Link to={`/menu_details/${this.state.id}`} className="mainToMenu">
+      <Link to={`/menu_details/${id}`} className="mainToMenu">
         <div
-          className={`menu ${this.state.isHover ? "activeHover" : ""}`}
-          key={this.props.id}
+          className={`menu ${isHover ? "activeHover" : ""}`}
+          key={props_id}
           onMouseEnter={this.handleMouseEnter}
           onMouseLeave={this.handleMouseLeave}
           onClick={this.handleItemClick}
         >
-          <img className="menu_img" src={this.props.image} alt="menu" />
+          <img className="menu_img" src={image} alt="menu" />
           <div className="menu_name" style={{ textDecoration: "none" }}>
-            {this.props.name}
+            {name}
           </div>
-          <div className="menu_desc">{this.props.summary}</div>
+          <div className="menu_desc">{summary}</div>
           <img className="i_explore" src={explore} alt="explore" />
         </div>
       </Link>

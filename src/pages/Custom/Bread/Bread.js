@@ -6,12 +6,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Bread.scss";
 
 export default class Bread extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      isActive: false,
-    };
-  }
+  state = {
+    isActive: false,
+    cartItem: [],
+  };
 
   handleBurn = () => {
     this.state.isActive
@@ -19,9 +17,28 @@ export default class Bread extends React.Component {
       : this.setState({ isActive: true });
   };
 
+  //클릭한 상품이 이미 배열에 존재하는지 체크
+  checkProduct = (id) => {
+    let { cartItem } = this.state;
+    return cartItem.includes(id);
+  };
+
+  handleAddToCart = (selectedProduct) => {
+    let productID = selectedProduct.id;
+    let product = selectedProduct;
+    if (!this.checkProduct(productID)) {
+      this.setState({
+        cartItem: this.state.cartItem.concat(product),
+      });
+    } else {
+      alert("이미 선택된 토핑입니다!");
+    }
+  };
+
   render(props) {
+    console.log(this.state.cartItem);
     const { bread } = this.props;
-    console.log("bread props", bread);
+
     const settings = {
       dots: true,
       arrows: true,
@@ -43,8 +60,10 @@ export default class Bread extends React.Component {
               name={good.name}
               image_url={good.image_url}
               key={good.id}
+              id={good.id}
               price={good.price}
               ingredient_category_id={good.ingredient_category_id}
+              handleAddToCart={this.handleAddToCart}
             />
           ))}
         </Slider>
