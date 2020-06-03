@@ -16,7 +16,7 @@ class Toppings extends Component {
   };
 
   componentDidMount() {
-    fetch("http://10.58.1.217:8000/product/sandwich/customization/topping/")
+    fetch("http://10.58.3.170:8000/product/sandwich/customization/topping/")
       .then((res) => res.json())
       .then((res) =>
         this.setState({
@@ -39,17 +39,17 @@ class Toppings extends Component {
   };
 
   clickToppings = (name) => {
-    console.log("name : ", name);
-
     const { addedToppings } = this.state;
-    console.log("t/f : ", addedToppings.includes(name));
 
     if (addedToppings.some((el) => el.id === name.id)) {
-      alert("삭제???");
+      alert("토핑을 제거합니다");
+      let toRemove = name;
+      let index = addedToppings.indexOf(toRemove);
+      addedToppings.splice(index, 1);
+
       // 삭제 로직
       //const delete = name;
     } else {
-      console.log("없음");
       this.setState(
         {
           addedToppings: addedToppings.concat(name),
