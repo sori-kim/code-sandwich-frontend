@@ -14,7 +14,7 @@ class MenuTitle extends React.Component {
         </div>
         <h2 className="name">{this.props.name}</h2>
         <p className="eng">{this.props.eng}</p>
-        <p className="cal">{this.props.cal} kcal</p>
+        <p className="cal">{this.props.kcal} kcal</p>
         <div className="sns">
           <a className="fb" href="#" alt="facebooklink"></a>
           <a className="url" href="#" alt="copyUrl"></a>

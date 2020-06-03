@@ -14,25 +14,36 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 class Menu_Details extends React.Component {
   state = {
     sandwich: [],
-    nutirion: [],
-    id: ""
+    nutrition: [],
+    prev: [],
+    next: [],
+    id: "",
   };
 
- 
   componentDidMount() {
     //const {params} = this.props.match
     //this.setState({ id: params.key})
     //const {num} = this.state.id
-    fetch(`http://10.58.1.217:8000/product/sandwich/?product_id=${this.props.match.params.key}`)
+    fetch(
+      `http://10.58.1.217:8000/product/sandwich/?product_id=${this.props.match.params.key}`
+    )
       .then((res) => res.json())
       .then((res) =>
-        this.setState({ sandwich: res.product, nutirion: res.nutrition })
+        this.setState({ sandwich: res.product, nutrition: res.nutrition })
       );
+
+    fetch(
+      `http://10.58.1.217:8000/product/sandwich/?product_id=${
+        this.props.match.params.key - 1
+      }`
+    )
+      .then((res) => res.json())
+      .then((res) => this.setState({ prev: res.product }));
   }
   render() {
     const { sandwich } = this.state;
-    const { nutirion } = this.state;
-    console.log(this.state, this.props)
+    const { nutrition } = this.state;
+    console.log(this.state, this.props);
     return (
       <>
         <Header />
@@ -44,15 +55,25 @@ class Menu_Details extends React.Component {
                 <MenuTitle
                   name={sandwich.name}
                   eng={sandwich.name_en}
-                  cal={nutirion.calories_kcal}
+                  kcal={nutrition.calories_kcal}
                 />
                 <OrderButton />
                 <MenuSelector
                   image={sandwich.image_url}
                   des={sandwich.description}
+                  name={sandwich.name}
+                  // prev={}
+                  // next={}
                 />
                 <MenuRecipe />
-                <CommonChart />
+                <CommonChart
+                  weight={nutrition.size_g}
+                  kcal={nutrition.calories_kcal}
+                  sugar={nutrition.sugar_g}
+                  protein={nutrition.protein_g}
+                  fat={nutrition.saturated_fat_g}
+                  sodium={nutrition.sodium_g}
+                />
                 <CommonRules />
               </div>
             </div>

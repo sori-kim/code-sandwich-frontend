@@ -1,8 +1,44 @@
+@import "../../styles/common";
+
 .Toppings {
-  .main {
-    ul {
+  font-family: $subwayFont;
+  height: 120vh;
+  .topping-wrap {
+    display: flex;
+    justify-content: center;
+    // align-items: center;
+    margin: 100px auto;
+    height: calc(120vh - 150px);
+
+    .main {
+      ul {
+        display: flex;
+        justify-content: space-evenly;
+        height: 40px;
+        font-size: 120%;
+        font-weight: 700;
+      }
+
+      .toppingbox-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 1000px;
+      }
+    }
+    .right-bar {
       display: flex;
-      justify-content: space-evenly;
+      flex-direction: column;
+      max-width: 300px;
+
+      .order-box {
+        border: 2px solid #ddd;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+      .caution {
+        margin: 40px auto;
+        font-size: 16px;
+        line-height: 1.4;
+      }
     }
   }
 }
