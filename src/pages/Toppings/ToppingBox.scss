@@ -1,0 +1,61 @@
+@import "../../styles/common";
+
+.ToppingBox {
+  height: 100%;
+  border: 2px solid #ddd;
+  border-radius: 20px;
+  width: 30%;
+  min-width: 100px;
+  // max-width: 150px;
+  margin: 10px;
+  &:hover {
+    border: 4px solid $fontGreen;
+  }
+
+  .img-box {
+    margin: auto;
+    img {
+      width: 100%;
+      margin: 90px auto 30px;
+    }
+  }
+
+  .topping-title {
+    color: #757575;
+    line-height: 1.1rem;
+    font-weight: 400;
+    text-align: center;
+    margin: 40px auto;
+    font-size: 130%;
+  }
+}
+
+.ToppingBox2 {
+  height: 100%;
+  border: 2px solid $fontGreen;
+  border-radius: 20px;
+  width: 30%;
+  min-width: 100px;
+  // max-width: 150px;
+  margin: 10px;
+  &:hover {
+    border: 4px solid $fontGreen;
+  }
+
+  .img-box {
+    margin: auto;
+    img {
+      width: 100%;
+      margin: 90px auto 30px;
+    }
+  }
+
+  .topping-title {
+    color: #757575;
+    line-height: 1.1rem;
+    font-weight: 400;
+    text-align: center;
+    margin: 40px auto;
+    font-size: 130%;
+  }
+}

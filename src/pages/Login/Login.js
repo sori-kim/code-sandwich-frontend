@@ -12,7 +12,7 @@ class Login extends React.Component {
 
   signupHandler = () => {
     console.log(this.state.inputEmail);
-    fetch("http://10.58.5.58:8000/account/signin", {
+    fetch("http://10.58.3.228:8000/signin", {
       method: "POST",
       headers: {
         "content-Type": "application/json",
@@ -21,15 +21,17 @@ class Login extends React.Component {
         email: this.state.inputEmail,
         password: this.state.inputPw,
       }),
-    }).then((res) => {
-      if (res.ok) {
-        alert("로그인성공!");
-        this.props.history.push("/");
-      } else {
-        alert("회원정보가 맞지 않습니다. <br/> 다시 확인해주세요.");
-        this.props.history.push("/login");
-      }
-    });
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        if (res.token) {
+          localStorage.setItem("Login-token", res.token);
+          alert("로그인 되었습니다");
+          this.props.history.push("/");
+        } else {
+          alert("회원정보가 맞지 않습니다. <br/> 다시 확인해주세요.");
+        }
+      });
   };
 
   render() {

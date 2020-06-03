@@ -22,12 +22,12 @@ class CommonChart extends React.Component {
               </thead>
               <tbody>
                 <tr>
-                  <td>162</td>
-                  <td>230</td>
-                  <td>7</td>
-                  <td>8(15%)</td>
-                  <td>1(3%)</td>
-                  <td>280(14%)</td>
+                  <td>{this.props.weight}</td>
+                  <td>{this.props.kcal}</td>
+                  <td>{this.props.sugar}</td>
+                  <td>{this.props.protein}</td>
+                  <td>{this.props.fat}</td>
+                  <td>{this.props.sodium}</td>
                 </tr>
               </tbody>
             </table>
