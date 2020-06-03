@@ -1,6 +1,7 @@
 import React from "react";
 import MenuItem from "../MenuSection/MenuItem/MenuItem";
 import Slider from "react-slick";
+import { URL } from "../../../Config";
 import "./MenuSection.scss";
 import map from "../../../images/icon_map.png";
 import franchise from "../../../images/icon_franchise.png";
@@ -13,7 +14,7 @@ class MenuSection extends React.Component {
   };
 
   componentDidMount() {
-    fetch("http://10.58.3.228:8000/product/sandwich")
+    fetch(`${URL}/product/sandwich`)
       .then((res) => res.json())
       .then((res) =>
         this.setState({
@@ -25,7 +26,7 @@ class MenuSection extends React.Component {
       );
   }
 
-  handleOnClick = (menu) => {
+  handleCategoryClick = (menu) => {
     const { sandwich } = this.state;
     this.setState({
       filtered_sandwich: sandwich.filter(
@@ -52,25 +53,25 @@ class MenuSection extends React.Component {
         <div className="title">Subway's Menu</div>
         <ul className="category">
           <li
-            onClick={() => this.handleOnClick(1)}
+            onClick={() => this.handleCategoryClick(1)}
             className={isActive === 1 ? "isActive" : "notActive"}
           >
             <a>클래식</a>
           </li>
           <li
-            onClick={() => this.handleOnClick(2)}
+            onClick={() => this.handleCategoryClick(2)}
             className={isActive === 2 ? "isActive" : "notActive"}
           >
             <a>프레쉬&라이트</a>
           </li>
           <li
-            onClick={() => this.handleOnClick(3)}
+            onClick={() => this.handleCategoryClick(3)}
             className={isActive === 3 ? "isActive" : "notActive"}
           >
             <a>프리미엄</a>
           </li>
           <li
-            onClick={() => this.handleOnClick(4)}
+            onClick={() => this.handleCategoryClick(4)}
             className={isActive === 4 ? "isActive" : "notActive"}
           >
             <a>아침메뉴</a>
@@ -93,6 +94,7 @@ class MenuSection extends React.Component {
               image={sandwich.image_url}
               name={sandwich.name}
               summary={sandwich.description}
+              id={sandwich.id}
             />
           ))}
         </Slider>
