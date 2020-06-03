@@ -17,7 +17,7 @@ class Shop extends Component{
                       <OrderDetail />
                       <div className="instruction">
                           <h2>Special Instructions</h2>
-                          <input type="text" maxLength="144" placeholder="Enter Instructions here"></input>
+                          <input className="textArea"type="text" maxLength="144" placeholder="Enter Instructions here"></input>
                           <p>144</p>
                       </div>
                     </div>
