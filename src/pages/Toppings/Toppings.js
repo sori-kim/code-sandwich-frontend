@@ -38,7 +38,9 @@ class Toppings extends Component {
   };
 
   clickToppings = (name) => {
-    this.setState({ addedToppings: this.state.addedToppings.concat(name) });
+    this.setState({
+      addedToppings: this.state.addedToppings.concat(name),
+    });
   };
 
   render() {
@@ -70,6 +72,7 @@ class Toppings extends Component {
                   id={topping.id}
                   image={topping.image_url}
                   name={topping.name}
+                  price={topping.price}
                   clickToppings={this.clickToppings}
                   // kcal={selectedToppings.kcal}
                 />

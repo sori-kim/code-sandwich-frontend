@@ -50,12 +50,14 @@
     }
   }
 
-  .topping-title {
-    color: #757575;
-    line-height: 1.1rem;
-    font-weight: 400;
+  .topping-info {
     text-align: center;
-    margin: 40px auto;
-    font-size: 130%;
+    .topping-title {
+      color: #757575;
+      line-height: 1.1rem;
+      font-weight: 400;
+      margin: 40px auto;
+      font-size: 130%;
+    }
   }
 }

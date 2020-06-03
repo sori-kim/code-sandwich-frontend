@@ -19,7 +19,10 @@ class ToppingBox extends Component {
         <div className="img-box">
           <img className="topping-img" src={this.props.image} alt="topping" />
         </div>
-        <div className="topping-title">{this.props.name}</div>
+        <div className="topping-info">
+          <div className="topping-title">{this.props.name}</div>
+          <div className="price">{this.props.price}원</div>
+        </div>
       </div>
     );
   }
