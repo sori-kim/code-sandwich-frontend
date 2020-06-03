@@ -3,32 +3,28 @@
 .Custom {
   border-top: 0.3px solid rgba(0, 0, 0, 0.6);
   margin-top: 30px;
+  height: 110vh;
+  // min-height: 500px;
+  // max-height: 1200px;
 
   .custom_wrapper {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 80%;
-    margin: 50px auto;
-
-    .ingredients {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-      padding-right: 150px;
-
-      img {
-        width: 440px;
-        padding: 10px;
-        position: relative;
-        &:first-child {
-          cursor: pointer;
-        }
-      }
-    }
+    justify-content: space-around;
+    margin: 5% auto;
+    // align-items: center;
+    width: 70%;
+    height: 100%;
   }
 
   .away_ingredients {
     display: none;
+  }
+
+  .ingredients {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 5%;
   }
 }

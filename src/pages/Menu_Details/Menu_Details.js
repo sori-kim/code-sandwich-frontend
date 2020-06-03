@@ -26,7 +26,11 @@ class Menu_Details extends React.Component {
     fetch(`${URL}/product/sandwich/?product_id=${this.props.match.params.key}`)
       .then((res) => res.json())
       .then((res) =>
-        this.setState({ sandwich: res.product, nutrition: res.nutrition })
+        this.setState({
+          sandwich: res.product,
+          nutrition: res.nutrition,
+          id: this.props.match.params.key,
+        })
       );
 
     fetch(
@@ -40,6 +44,7 @@ class Menu_Details extends React.Component {
   render() {
     const { sandwich } = this.state;
     const { nutrition } = this.state;
+    const { id } = this.state;
 
     return (
       <>
@@ -54,7 +59,7 @@ class Menu_Details extends React.Component {
                   eng={sandwich.name_en}
                   kcal={nutrition.calories_kcal}
                 />
-                <OrderButton />
+                <OrderButton id={id} />
                 <MenuSelector
                   image={sandwich.image_url}
                   des={sandwich.description}
