@@ -12,10 +12,14 @@
         display: flex;
         justify-content: center;
         height: 80%;
+        padding-top: 5%;
         .leftSection{
             width: 55%;
             padding: 0;
-            background-color: $subwayGreen;
+            //background-color: $subwayGreen;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
             h1{
                 font-size: 24px;
                 font-weight: bold;
@@ -31,7 +35,7 @@
             }
             .instruction{
                 width: 100%;
-                height: 40%;
+                height: 25%;
                 background-color: #f7f7f7;
                 display: flex;
                 flex-direction: column;
@@ -41,7 +45,7 @@
                     font-size: 17px;
                     font-weight: 700;
                 }
-                input{
+                .textArea{
                     margin: 8px auto;
                     width: 90%;
                     height: 43px;
@@ -57,9 +61,12 @@
             }
         }
         .rightSection{
-            background-color: $subwayYellow;
+            //background-color: $subwayYellow;
             width: 25%;
-            height: 100%;
+            //height: 100%;
+            height: 80%;
+            //padding-top: 12%;
+            padding-left: 2%;
         }
     }
     .Footer{
