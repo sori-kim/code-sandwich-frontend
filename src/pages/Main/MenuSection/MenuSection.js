@@ -1,7 +1,7 @@
 import React from "react";
 import MenuItem from "../MenuSection/MenuItem/MenuItem";
 import Slider from "react-slick";
-import Config from "../../../Config";
+import { URL } from "../../../Config";
 import "./MenuSection.scss";
 import map from "../../../images/icon_map.png";
 import franchise from "../../../images/icon_franchise.png";
@@ -14,7 +14,7 @@ class MenuSection extends React.Component {
   };
 
   componentDidMount() {
-    fetch(Config.API)
+    fetch(`${URL}/product/sandwich`)
       .then((res) => res.json())
       .then((res) =>
         this.setState({

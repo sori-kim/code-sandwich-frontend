@@ -9,7 +9,7 @@ import MenuRecipe from "./MenuRecipe/MenuRecipe";
 import CommonChart from "./CommonChart/CommonChart";
 import CommonRules from "./CommonRules/CommonRules";
 import Footer from "../../components/Footer/Footer";
-import Config from "../../Config";
+import { URL } from "../../Config";
 import "./Menu_Details.scss";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
@@ -22,7 +22,7 @@ class Menu_Details extends React.Component {
 
  
   componentDidMount() {
-    fetch(`${Config.API}/?product_id=${this.props.match.params.key}`)
+    fetch(`${URL}/product/sandwich/?product_id=${this.props.match.params.key}`)
       .then((res) => res.json())
       .then((res) =>
         this.setState({ sandwich: res.product, nutirion: res.nutrition })

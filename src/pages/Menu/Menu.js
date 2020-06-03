@@ -4,11 +4,8 @@ import TopImage from "./TopImage/TopImage";
 import Middle from "./Middle/Middle";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
-import Config from "../../Config";
+import {URL} from "../../Config";
 import "./Menu.scss";
-
-
-//API주소가 필요한 곳에 Config.해당 api 변수 이름을 넣어주면 됨.
 
 class Menu extends Component {
   state = {
@@ -22,7 +19,7 @@ class Menu extends Component {
   }
 
   getData = () => {
-    fetch(Config.API)
+    fetch(`${URL}/product/sandwich`)
       .then((res) => res.json())
       .then((res) =>
         this.setState({
@@ -49,16 +46,13 @@ class Menu extends Component {
       })
     }
   }
- 
 
   render() {
-    console.log(Config)
     const {
       sandwich,
       filtered_sandwich,
       isActive,
     } = this.state;
-    console.log(this.state)
 
     return (
       <div>
