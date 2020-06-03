@@ -14,7 +14,9 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 class Menu_Details extends React.Component {
   state = {
     sandwich: [],
-    nutirion: [],
+    nutrition: [],
+    prev: [],
+    next: [],
     id: "",
   };
 
@@ -29,6 +31,14 @@ class Menu_Details extends React.Component {
       .then((res) =>
         this.setState({ sandwich: res.product, nutrition: res.nutrition })
       );
+
+    fetch(
+      `http://10.58.1.217:8000/product/sandwich/?product_id=${
+        this.props.match.params.key - 1
+      }`
+    )
+      .then((res) => res.json())
+      .then((res) => this.setState({ prev: res.product }));
   }
   render() {
     const { sandwich } = this.state;
@@ -45,13 +55,15 @@ class Menu_Details extends React.Component {
                 <MenuTitle
                   name={sandwich.name}
                   eng={sandwich.name_en}
-                  cal={nutrition.calories_kcal}
+                  kcal={nutrition.calories_kcal}
                 />
                 <OrderButton />
                 <MenuSelector
                   image={sandwich.image_url}
                   des={sandwich.description}
                   name={sandwich.name}
+                  // prev={}
+                  // next={}
                 />
                 <MenuRecipe />
                 <CommonChart

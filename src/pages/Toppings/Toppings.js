@@ -1,66 +1,93 @@
 import React, { Component } from "react";
+import Header from "../../components/Header/Header";
+import OrderBox from "../../components/OrderBox/OrderBox";
+import Footer from "../../components/Footer/Footer";
 import ToppingBox from "./ToppingBox";
 import "./Toppings.scss";
+import { faFileExcel } from "@fortawesome/free-solid-svg-icons";
 
 class Toppings extends Component {
   state = {
     toppings: [],
     selectedToppings: [],
-    isActive: "meat",
+    isActive: 2,
+    addedToppings: [],
   };
 
   componentDidMount() {
-    fetch("http://localhost:3000/data/data.json")
+    fetch("http://10.58.1.217:8000/product/sandwich/customization/topping/")
       .then((res) => res.json())
       .then((res) =>
         this.setState({
-          toppings: res.data,
-          selectedToppings: this.state.toppings.filter((item) =>
-            item.id.include("a")
+          toppings: res.all_toppings,
+          selectedToppings: res.all_toppings.filter(
+            (topping) => topping.ingredient_category_id === 2
           ),
         })
       );
   }
 
   handleClick = (clickedTopping) => {
+    const { toppings } = this.state;
     this.setState({
-      selectedToppings: this.state.toppings.filter((item) =>
-        item.id.includes(clickedTopping)
+      selectedToppings: toppings.filter(
+        (item) => item.ingredient_category_id === clickedTopping
       ),
       isActive: clickedTopping,
     });
   };
 
+  clickToppings = (name) => {
+    this.setState({ addedToppings: this.state.addedToppings.concat(name) });
+  };
+
   render() {
+    console.log("부모", this.state.addedToppings);
     const { selectedToppings } = this.state;
 
     return (
       <div className="Toppings">
-        <div className="main">
-          <ul className="selectTab">
-            <li onClick={() => this.handleClick("meat")} className="meat">
-              Meat
-            </li>
-            <li onClick={() => this.handleClick("cheese")} className="cheese">
-              Cheese
-            </li>
-            <li onClick={() => this.handleClick("veggies")} className="veggies">
-              Veggies
-            </li>
-            <li onClick={() => this.handleClick("sauces")} className="sauces">
-              Sauces
-            </li>
-          </ul>
-          {selectedToppings.map((topping) => {
-            return (
-              <ToppingBox
-                image={selectedToppings.image}
-                name={selectedToppings.name}
-                kcal={selectedToppings.kcal}
-              />
-            );
-          })}
+        <Header />
+        <div className="topping-wrap">
+          <div className="main">
+            <ul className="selectTab">
+              <li onClick={() => this.handleClick(2)} className="meat">
+                Meat
+              </li>
+              <li onClick={() => this.handleClick(4)} className="cheese">
+                Cheese
+              </li>
+              <li onClick={() => this.handleClick(3)} className="veggies">
+                Veggies
+              </li>
+              <li onClick={() => this.handleClick(5)} className="sauces">
+                Sauces
+              </li>
+            </ul>
+            <div className="toppingbox-wrap">
+              {selectedToppings.map((topping) => (
+                <ToppingBox
+                  id={topping.id}
+                  image={topping.image_url}
+                  name={topping.name}
+                  clickToppings={this.clickToppings}
+                  // kcal={selectedToppings.kcal}
+                />
+              ))}
+            </div>
+          </div>
+          <div className="right-bar">
+            <OrderBox />
+            <div className="caution">
+              Adults and youth (ages 13 and older) need an average of 2,000
+              calories a day, and children (ages 4 to 12) need an average of
+              1,500 calories a day. However, individual needs vary. Calories for
+              ingredients in addition to the basic preparation are additional.
+            </div>
+          </div>
         </div>
+
+        <Footer />
       </div>
     );
   }
