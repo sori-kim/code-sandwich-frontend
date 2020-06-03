@@ -3,50 +3,77 @@
 .custom_wrapper {
   .Bread {
     display: flex;
-    height: 70%;
     flex-direction: column;
+    height: 65%;
+    width: 70%;
     align-items: center;
     justify-content: space-around;
     margin: 0 auto;
     font-family: $subwayFont;
 
-    .bread_title {
-      color: black;
-      font-weight: 700;
-      font-size: 28px;
+    .BreadItem {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 500px;
+      width: 100%;
+
+      .bread_title {
+        color: black;
+        font-weight: 700;
+        font-size: 28px;
+        margin: 5% 0;
+      }
+      .bread_cals {
+        font-size: 25px;
+        font-weight: 700;
+        color: grey;
+      }
+      img {
+        width: 80%;
+        margin: 5% 0;
+      }
     }
-    .bread_cals {
-      font-size: 25px;
-      font-weight: 700;
-      color: grey;
-    }
-    img {
-      width: 80%;
-    }
-    .notBurn {
-      background-color: grey;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      padding: 10px;
-      z-index: 9;
-      cursor: pointer;
-    }
-    .burnActive {
-      background-color: #dd3705;
-    }
-    .toasted {
-      font-size: 20px;
-      font-weight: 800;
-      color: rgba(0, 0, 0, 0.7);
-    }
-    button {
-      padding: 12px 120px;
-      margin-bottom: 15px;
-      font-size: 1.2rem;
-      font-weight: 600;
-      background-color: $subwayGreen;
-      color: $fontWhite;
+
+    .bottom_side {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      height: 100%;
+      margin-top: 5%;
+      .notBurn {
+        background-color: grey;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        padding: 10px;
+        z-index: 9;
+        cursor: pointer;
+      }
+      .burnActive {
+        background-color: #dd3705;
+      }
+      .toasted {
+        font-size: 20px;
+        font-weight: 800;
+        color: rgba(0, 0, 0, 0.7);
+      }
+      .looksGood {
+        padding: 12px 120px;
+        margin-bottom: 15px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        background-color: $subwayGreen;
+        color: $fontWhite;
+      }
     }
   }
+}
+
+.slide {
+  width: 100%;
+  height: 500px;
+  // background-color: gold;
 }

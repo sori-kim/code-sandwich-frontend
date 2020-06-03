@@ -3,7 +3,7 @@ import "./Ingredient.scss";
 
 export default class Ingredients extends React.Component {
   render(props) {
-    console.log(this.props);
+    console.log("ingredients props", this.props);
     return (
       <div className="Ingredient">
         <img
