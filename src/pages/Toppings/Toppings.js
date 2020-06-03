@@ -4,7 +4,7 @@ import OrderBox from "../../components/OrderBox/OrderBox";
 import Footer from "../../components/Footer/Footer";
 import ToppingBox from "./ToppingBox";
 import "./Toppings.scss";
-import { faFileExcel } from "@fortawesome/free-solid-svg-icons";
+import { faFileExcel, faBreadSlice } from "@fortawesome/free-solid-svg-icons";
 
 class Toppings extends Component {
   state = {
@@ -12,6 +12,7 @@ class Toppings extends Component {
     selectedToppings: [],
     isActive: 2,
     addedToppings: [],
+    bigArr: [],
   };
 
   componentDidMount() {
@@ -38,13 +39,27 @@ class Toppings extends Component {
   };
 
   clickToppings = (name) => {
-    this.setState({
-      addedToppings: this.state.addedToppings.concat(name),
-    });
+    console.log("name : ", name);
+
+    const { addedToppings } = this.state;
+    console.log("t/f : ", addedToppings.includes(name));
+
+    if (addedToppings.some((el) => el.id === name.id)) {
+      alert("삭제???");
+      // 삭제 로직
+      //const delete = name;
+    } else {
+      console.log("없음");
+      this.setState(
+        {
+          addedToppings: addedToppings.concat(name),
+        },
+        () => console.log("전체 :", this.state.addedToppings)
+      );
+    }
   };
 
   render() {
-    console.log("부모", this.state.addedToppings);
     const { selectedToppings } = this.state;
 
     return (
@@ -74,6 +89,7 @@ class Toppings extends Component {
                   name={topping.name}
                   price={topping.price}
                   clickToppings={this.clickToppings}
+                  ingredient_category_id={topping.ingredient_category_id}
                   // kcal={selectedToppings.kcal}
                 />
               ))}

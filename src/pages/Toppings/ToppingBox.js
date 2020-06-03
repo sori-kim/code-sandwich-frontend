@@ -7,21 +7,27 @@ class ToppingBox extends Component {
     selectedOptions: [],
   };
 
+  handleSelect = () => {
+    this.setState(
+      {
+        toggleState: !this.state.toggleState,
+      },
+      () => this.props.clickToppings(this.props)
+    );
+  };
+
   render() {
     return (
       <div
         className={this.state.toggleState ? "ToppingBox" : "ToppingBox2"}
-        onClick={(e) =>
-          // (e) => console.log(this.props)
-          this.props.clickToppings(this.props)
-        }
+        onClick={this.handleSelect}
       >
         <div className="img-box">
           <img className="topping-img" src={this.props.image} alt="topping" />
         </div>
         <div className="topping-info">
           <div className="topping-title">{this.props.name}</div>
-          <div className="price">{this.props.price}원</div>
+          <div className="price">+{Math.floor(this.props.price)}원</div>
         </div>
       </div>
     );

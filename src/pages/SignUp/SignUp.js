@@ -73,7 +73,7 @@ class SignUp extends React.Component {
   };
 
   firstCheck() {
-    fetch("http://10.58.3.228:8000/signup", {
+    fetch("http://10.58.1.217:8000/signup", {
       method: "POST",
       headers: {
         "content-Type": "application/json",

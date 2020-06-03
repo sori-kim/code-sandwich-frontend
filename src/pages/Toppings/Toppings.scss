@@ -2,13 +2,13 @@
 
 .Toppings {
   font-family: $subwayFont;
-  height: 120vh;
+  height: 150vh;
   .topping-wrap {
     display: flex;
     justify-content: center;
     // align-items: center;
     margin: 100px auto;
-    height: calc(120vh - 150px);
+    height: calc(150vh - 150px);
 
     .main {
       ul {
@@ -17,6 +17,7 @@
         height: 40px;
         font-size: 120%;
         font-weight: 700;
+        cursor: pointer;
       }
 
       .toppingbox-wrap {
