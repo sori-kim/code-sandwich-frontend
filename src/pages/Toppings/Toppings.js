@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import Header from "../../components/Header/Header";
-import OrderBox from "../../components/OrderBox/OrderBox";
 import Footer from "../../components/Footer/Footer";
 import ToppingBox from "./ToppingBox";
+import { URL } from "../../Config";
 import "./Toppings.scss";
 import { faFileExcel, faBreadSlice } from "@fortawesome/free-solid-svg-icons";
 
@@ -16,7 +16,7 @@ class Toppings extends Component {
   };
 
   componentDidMount() {
-    fetch("http://10.58.3.170:8000/product/sandwich/customization/topping/")
+    fetch(`${URL}/product/sandwich/customization/topping/`)
       .then((res) => res.json())
       .then((res) =>
         this.setState({
@@ -59,6 +59,16 @@ class Toppings extends Component {
     }
   };
 
+  sendTopping = () => {
+    //토핑추가하기를 누르면 실행될 함수
+    //custom 페이지로 이동하면서 고른 토핑을 펼쳐서 보여준다.
+    localStorage.setItem(
+      "testObject",
+      // this.state.addedToppings
+      JSON.stringify(this.state.addedToppings)
+    );
+  };
+
   render() {
     const { selectedToppings } = this.state;
 
@@ -96,7 +106,23 @@ class Toppings extends Component {
             </div>
           </div>
           <div className="right-bar">
-            <OrderBox />
+            <div className="AddToppingBox">
+              <div className="order_wrapper">
+                <div className="title">B.L.T</div>
+                <div>
+                  <div className="price">11,000원</div>
+                  <div className="cals">520 Cals</div>
+                </div>
+                <div className="size"> footlong</div>
+                <div
+                  className={`button_wrapper ${
+                    this.state.activeOrderBox === 1 ? "activeOrder" : ""
+                  }`}
+                >
+                  <button onClick={this.sendTopping}>토핑 추가</button>
+                </div>
+              </div>
+            </div>
             <div className="caution">
               Adults and youth (ages 13 and older) need an average of 2,000
               calories a day, and children (ages 4 to 12) need an average of

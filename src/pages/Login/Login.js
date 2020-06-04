@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import Footer from "../../components/Footer/Footer";
+import { URL } from "../../Config";
 import "./Login.scss";
 
 class Login extends React.Component {
@@ -14,7 +15,7 @@ class Login extends React.Component {
   };
 
   signupHandler() {
-    fetch("http://10.58.3.170:8000/signin", {
+    fetch(`${URL}/signin`, {
       method: "POST",
       headers: {
         "content-Type": "application/json",
