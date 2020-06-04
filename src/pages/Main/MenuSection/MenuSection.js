@@ -1,6 +1,7 @@
 import React from "react";
 import MenuItem from "../MenuSection/MenuItem/MenuItem";
 import Slider from "react-slick";
+import Modal from "../../../components/Modal/Modal";
 import { URL } from "../../../Config";
 import "./MenuSection.scss";
 import map from "../../../images/icon_map.png";
@@ -34,6 +35,14 @@ class MenuSection extends React.Component {
       ),
       isActive: menu,
     });
+  };
+
+  openModal = () => {
+    this.setState({ isModalOpen: true });
+  };
+
+  closeModal = () => {
+    this.setState({ isModalOpen: false });
   };
 
   render() {
@@ -78,7 +87,7 @@ class MenuSection extends React.Component {
           </li>
         </ul>
         <div className="main_button">
-          <a className="button_order">
+          <a className="button_order" handle={}>
             <img src={franchise} alt="icon" />
             <p>주문하기</p>
           </a>

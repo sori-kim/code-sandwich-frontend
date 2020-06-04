@@ -63,7 +63,7 @@ export default class Custom extends React.Component {
           <div className="custom_wrapper">
             <Bread
               isShown={this.state.isShown === "show_bread"}
-              handleGood={this.looksgood}
+              looksgood={this.looksgood}
               bread={this.state.bread}
             />
             <div
@@ -72,7 +72,6 @@ export default class Custom extends React.Component {
                   ? "away_ingredients"
                   : "ingredients"
               }
-              onClick={this.handleBreadFetch}
             >
               {this.state.default_ingredients.map((things) => (
                 <Ingredient

@@ -9,6 +9,7 @@ export default class Bread extends React.Component {
   state = {
     isActive: false,
     cartItem: [],
+    isModalOpen: false,
   };
 
   handleBurn = () => {
@@ -77,7 +78,7 @@ export default class Bread extends React.Component {
             />
           </div>
           <div className="toasted">Toasted</div>
-          <button className="looksGood" onClick={this.props.handleGood}>
+          <button className="looksGood" onClick={this.props.looksgood}>
             Looks Good
           </button>
         </div>
