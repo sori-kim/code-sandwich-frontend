@@ -21,7 +21,7 @@ export default class OrderBox extends React.Component {
               this.state.activeOrderBox === 1 ? "activeOrder" : ""
             }`}
           >
-            <button>장바구니 추가</button>
+            <button onClick={this.props.handleOrder}>장바구니 추가</button>
             <button>토핑 추가</button>
           </div>
         </div>

@@ -12,6 +12,7 @@ export default class Custom extends React.Component {
     isActive: false,
     isShown: "noshow_bread",
     customized: [],
+    product_name: "",
     default_ingredients: [],
     added_ingredients: [],
     image_url: [],
@@ -35,6 +36,7 @@ export default class Custom extends React.Component {
       .then((res) =>
         this.setState({
           default_ingredients: res.default_ingredients,
+          product_name: res.product_name,
           customized: res.default_ingredients,
           bread: res.all_bread.filter(
             (bread) => bread.name.includes("top") || bread.name.includes("플랫")
@@ -43,29 +45,7 @@ export default class Custom extends React.Component {
       );
   }
 
-  //Looks Good 버튼 눌렀을때 빵 선택 완료되고 커스텀 페이지로 돌아오기
-  /*소리 looksgood
-  looksgood = (newBread) => {
-    const { default_ingredients, added_ingredients } = this.state;
-    this.setState({
-      isShown: "noshow_bread",
-      added_ingredients: newBread,
-      customized: default_ingredients,
-    });
-    if (default_ingredients.some((el) => el.ingredient_category_id === 1)) {
-      let toRemove = newBread;
-      let indexTop = 0;
-      let indexBottom = default_ingredients.length - 1;
-
-      this.setState({ customized: default_ingredients });
-      let breadBot = default_ingredients.splice(
-        indexBottom,
-        1,
-        this.state.added_ingredients
-      );
-     this.setState({ customized: custom });
-    }
-  };*/
+  //빵선택했을때 변경사항 반영되어 커스텀 화면으로 돌아오기
   looksgood = (newBread) => {
     const { default_ingredients, added_ingredients } = this.state;
     this.setState({
@@ -86,7 +66,34 @@ export default class Custom extends React.Component {
     });
   };
 
+  goToShop = () => {
+    this.props.history.push("/shop");
+  };
+
+  //장바구니 추가 버튼 클릭했을때 POST요청 보내기
+  handleOrder = () => {
+    const { default_ingredients, added_ingredients, product_name } = this.state;
+    fetch(`${URL}/cart/modification`, {
+      method: "POST",
+      //로그인한 유저의 토큰 LS에서 가져오는것 추가예정
+      headers: {
+        Authorization:
+          "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImFhYUBhYWEuY29tIn0.id-qdXSVQKGuJOYfS1w97oQCih-lgNJLzbO4WAuM3kc",
+      },
+      body: JSON.stringify({
+        default_ingredients: default_ingredients,
+        added_ingredients: added_ingredients,
+        product_name: product_name,
+      }),
+    }).then((res) => {
+      if (res.status === 200) {
+        this.goToShop.call(this);
+      }
+    });
+  };
+
   render() {
+    console.log(this.state);
     return (
       <>
         <Header />
@@ -116,7 +123,7 @@ export default class Custom extends React.Component {
               ))}
             </div>
             <div className="orderbox_wrapper">
-              <OrderBox />
+              <OrderBox handleOrder={this.handleOrder} />
             </div>
           </div>
         </div>
