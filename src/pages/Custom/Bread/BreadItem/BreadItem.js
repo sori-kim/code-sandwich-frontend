@@ -6,7 +6,7 @@ export default class BreadItem extends React.Component {
     return (
       <div
         className="BreadItem"
-        onClick={(e) => this.props.handleAddToCart(this.props)}
+        onClick={() => this.props.handleAddToCart(this.props)}
       >
         <div className="bread_title">{this.props.name}</div>
         <div className="bread_cals">360 Cals</div>
