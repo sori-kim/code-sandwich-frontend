@@ -17,6 +17,7 @@ class MenuSelector extends React.Component {
   };
 
   render() {
+    //console.log("나는 프롭스", this.props);
     return (
       <div className="menu-content">
         <div className="MenuSelector">
@@ -25,49 +26,45 @@ class MenuSelector extends React.Component {
               <img alt="vegi" src={this.props.image} />
               <div className="MenuRotate">
                 <div className="menu_nav_prev">
-                  <div
-                    className={
-                      this.state.hoverLeft ? "rotate-img" : "rotate-img-change"
-                    }
-                  >
-                    <img
-                      alt="이전메뉴"
-                      src="http://www.subway.co.kr/images/menu/sandwich_fl05.jpg"
-                    />
-                  </div>
+                  <Link to={`/menu_details/${this.props.prevId}`}>
+                    <div
+                      onMouseOver={this.hoverHandlerLeft}
+                      onMouseLeave={this.hoverHandlerLeft}
+                      onClick={() => this.props.clickHandler(-1)}
+                      className={
+                        this.state.hoverLeft
+                          ? "rotate-img"
+                          : "rotate-img-change"
+                      }
+                    >
+                      <img alt="이전메뉴" src={this.props.prevImage} />
+                    </div>
+                  </Link>
                 </div>
                 <div className="menu_nav_next">
-                  <div
-                    className={
-                      this.state.hoverRight
-                        ? "rotate-img"
-                        : "rotate-img-change-next"
-                    }
-                  >
-                    <img
-                      alt="다음메뉴"
-                      src="http://www.subway.co.kr/images/menu/sandwich_fl01.jpg"
-                    />
-                  </div>
+                  <Link to={`/menu_details/${this.props.nextId}`}>
+                    <div
+                      onMouseOver={this.hoverHandlerRight}
+                      onMouseLeave={this.hoverHandlerRight}
+                      onClick={() => this.props.clickHandler(1)}
+                      className={
+                        this.state.hoverRight
+                          ? "rotate-img"
+                          : "rotate-img-change-next"
+                      }
+                    >
+                      <img alt="다음메뉴" src={this.props.nextImage} />
+                    </div>
+                  </Link>
                 </div>
               </div>
             </div>
-            <Link
-              to="#url"
-              className="arr-prev"
-              onMouseOver={this.hoverHandlerLeft}
-              onMouseLeave={this.hoverHandlerLeft}
-            >
-              <span>터키</span>
-            </Link>
-            <Link
-              to="#url"
-              className="arr-next"
-              onMouseOver={this.hoverHandlerRight}
-              onMouseLeave={this.hoverHandlerRight}
-            >
-              <span>로세터리 치킨</span>
-            </Link>
+            <div className="arr-prev">
+              <span>{this.props.prevName}</span>
+            </div>
+            <div className="arr-next">
+              <span>{this.props.nextName}</span>
+            </div>
           </div>
           <p className="summary">{this.props.des}</p>
         </div>

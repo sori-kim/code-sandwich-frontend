@@ -2,4 +2,4 @@
 // 정해진 변수뒤에 template literal 형태로 endpoint만 적어주시면 됩니다.
 // URL 사용시, fetch(`${URL}/endpoint명`);
 
-export const URL = "http://10.58.7.255:8000/";
+export const URL = "http://10.58.5.80:8000";

@@ -29,20 +29,39 @@ class Menu_Details extends React.Component {
         this.setState({
           sandwich: res.product,
           nutrition: res.nutrition,
+          prev: res.all_subcategory_products[0],
+          next: res.all_subcategory_products[1],
           id: this.props.match.params.key,
         })
       );
-
-    fetch(
-      `${URL}/product/sandwich/?product_id=${this.props.match.params.key - 1}`
-    )
-      .then((res) => res.json())
-      .then((res) => this.setState({ prev: res.product }));
   }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.match.params.id !== this.state.id) {
+      fetch(`${URL}/product/sandwich/?product_id=${this.state.id}`)
+        .then((res) => res.json())
+        .then((res) =>
+          this.setState({
+            sandwich: res.product,
+            nutrition: res.nutrition,
+            prev: res.all_subcategory_products[0],
+            next: res.all_subcategory_products[1],
+            id: this.props.match.params.key,
+          })
+        );
+      return;
+    }
+  }
+
+  clickHandler = (number) => {
+    this.setState({
+      id: parseInt(this.state.id) + number,
+    });
+  };
+
   render() {
-    const { sandwich } = this.state;
-    const { nutrition } = this.state;
-    const { id } = this.state;
+    console.log(this.state);
+    const { sandwich, nutrition, id, prev, next } = this.state;
 
     return (
       <>
@@ -59,11 +78,18 @@ class Menu_Details extends React.Component {
                 />
                 <OrderButton id={id} />
                 <MenuSelector
+                  centerId={sandwich.id}
                   image={sandwich.image_url}
                   des={sandwich.description}
                   name={sandwich.name}
-                  // prev={}
-                  // next={}
+                  prevName={prev.name}
+                  prevImage={prev.image_url}
+                  prevId={prev.id}
+                  nextName={next.name}
+                  nextImage={next.image_url}
+                  nextId={next.id}
+                  prevNext={this.prevNext}
+                  clickHandler={this.clickHandler}
                 />
                 <MenuRecipe />
                 <CommonChart
