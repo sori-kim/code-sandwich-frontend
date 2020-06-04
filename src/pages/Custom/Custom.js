@@ -75,6 +75,7 @@ export default class Custom extends React.Component {
     const { default_ingredients, added_ingredients, product_name } = this.state;
     fetch(`${URL}/cart/modification`, {
       method: "POST",
+      //로그인한 유저의 토큰 LS에서 가져오는것 추가예정
       headers: {
         Authorization:
           "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImFhYUBhYWEuY29tIn0.id-qdXSVQKGuJOYfS1w97oQCih-lgNJLzbO4WAuM3kc",
@@ -92,7 +93,7 @@ export default class Custom extends React.Component {
   };
 
   render() {
-    console.log(this.state.product_name);
+    console.log(this.state);
     return (
       <>
         <Header />
