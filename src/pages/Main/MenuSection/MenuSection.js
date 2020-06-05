@@ -1,10 +1,12 @@
 import React from "react";
 import MenuItem from "../MenuSection/MenuItem/MenuItem";
 import Slider from "react-slick";
+import Modal from "../../../components/Modal/Modal";
 import { URL } from "../../../Config";
 import "./MenuSection.scss";
 import map from "../../../images/icon_map.png";
 import franchise from "../../../images/icon_franchise.png";
+import { faBorderNone } from "@fortawesome/free-solid-svg-icons";
 
 class MenuSection extends React.Component {
   state = {
@@ -34,6 +36,14 @@ class MenuSection extends React.Component {
       ),
       isActive: menu,
     });
+  };
+
+  openModal = () => {
+    this.setState({ isModalOpen: true });
+  };
+
+  closeModal = () => {
+    this.setState({ isModalOpen: false });
   };
 
   render() {

@@ -24,7 +24,11 @@ class ToppingBox extends Component {
         onClick={this.handleSelect}
       >
         <div className="img-box">
-          <img className="topping-img" src={this.props.image} alt="topping" />
+          <img
+            className="topping-img"
+            src={this.props.image_url}
+            alt="topping"
+          />
         </div>
         <div className="topping-info">
           <div className="topping-title">{this.props.name}</div>

@@ -9,6 +9,7 @@ export default class Bread extends React.Component {
   state = {
     isActive: false,
     cart: [],
+    isModalOpen: false,
   };
 
   handleBurn = () => {
@@ -74,7 +75,7 @@ export default class Bread extends React.Component {
           ))}
         </Slider>
         <div className="bottom_side">
-          <div onClick={this.handleBurn}>
+          {/* <div onClick={this.handleBurn}>
             <FontAwesomeIcon
               icon={faBurn}
               size="2x"
@@ -82,7 +83,8 @@ export default class Bread extends React.Component {
               className={`notBurn ${this.state.isActive ? "burnActive" : ""} `}
             />
           </div>
-          <div className="toasted">Toasted</div>
+          <div className="toasted">Toasted</div> */}
+
           <button
             className="looksGood"
             onClick={() => {

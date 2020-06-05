@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import ToppingBox from "./ToppingBox";
+import { Link } from "react-router-dom";
 import { URL } from "../../Config";
 import "./Toppings.scss";
 import { faFileExcel, faBreadSlice } from "@fortawesome/free-solid-svg-icons";
@@ -22,6 +23,7 @@ class Toppings extends Component {
       .then((res) =>
         this.setState({
           toppings: res.all_toppings,
+          page_key: this.props.match.params.key,
           selectedToppings: res.all_toppings.filter(
             (topping) => topping.ingredient_category_id === 2
           ),
@@ -72,6 +74,10 @@ class Toppings extends Component {
     }
   };
 
+  goToCustom = () => {
+    this.props.history.push("/custom");
+  };
+
   sendTopping = () => {
     //토핑추가하기를 누르면 실행될 함수
     //custom 페이지로 이동하면서 고른 토핑을 펼쳐서 보여준다.
@@ -79,11 +85,11 @@ class Toppings extends Component {
       "testObject",
       JSON.stringify(this.state.addedToppings)
     );
+    this.goToCustom.call(this);
   };
 
   render() {
     const { selectedToppings } = this.state;
-
     return (
       <div className="Toppings">
         <Header />
@@ -107,7 +113,7 @@ class Toppings extends Component {
               {selectedToppings.map((topping) => (
                 <ToppingBox
                   id={topping.id}
-                  image={topping.image_url}
+                  image_url={topping.image_url}
                   name={topping.name}
                   price={topping.price}
                   clickToppings={this.clickToppings}
@@ -136,7 +142,9 @@ class Toppings extends Component {
                     this.state.activeOrderBox === 1 ? "activeOrder" : ""
                   }`}
                 >
-                  <button onClick={this.sendTopping}>토핑 추가</button>
+                  <Link to={`/custom/${this.state.page_key}`}>
+                    <button onClick={this.sendTopping}>토핑 추가</button>
+                  </Link>
                 </div>
               </div>
             </div>
