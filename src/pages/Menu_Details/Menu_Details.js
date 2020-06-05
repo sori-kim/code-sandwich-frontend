@@ -10,8 +10,8 @@ import CommonChart from "./CommonChart/CommonChart";
 import CommonRules from "./CommonRules/CommonRules";
 import Footer from "../../components/Footer/Footer";
 import { URL } from "../../Config";
+// import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import "./Menu_Details.scss";
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
 class Menu_Details extends React.Component {
   state = {
@@ -22,8 +22,20 @@ class Menu_Details extends React.Component {
     id: "",
   };
 
-  componentDidMount() {
-    fetch(`${URL}/product/sandwich/?product_id=${this.props.match.params.key}`)
+  componentDidMount = () => {
+    window.scrollTo(0, 0);
+    this.getData();
+  };
+
+  componentDidUpdate = (prevProps) => {
+    if (prevProps.match.params.key !== this.props.match.params.key) {
+      this.getData();
+    }
+  };
+
+  getData = () => {
+    const num = this.props.match.params.key;
+    fetch(`${URL}/product/sandwich/?product_id=${num}`)
       .then((res) => res.json())
       .then((res) =>
         this.setState({
@@ -31,37 +43,13 @@ class Menu_Details extends React.Component {
           nutrition: res.nutrition,
           prev: res.all_subcategory_products[0],
           next: res.all_subcategory_products[1],
-          id: this.props.match.params.key,
+          id: res.product.id,
         })
       );
-  }
-
-  componentDidUpdate(prevProps) {
-    if (prevProps.match.params.id !== this.state.id) {
-      fetch(`${URL}/product/sandwich/?product_id=${this.state.id}`)
-        .then((res) => res.json())
-        .then((res) =>
-          this.setState({
-            sandwich: res.product,
-            nutrition: res.nutrition,
-            prev: res.all_subcategory_products[0],
-            next: res.all_subcategory_products[1],
-            id: this.props.match.params.key,
-          })
-        );
-      return;
-    }
-  }
-
-  clickHandler = (number) => {
-    this.setState({
-      id: parseInt(this.state.id) + number,
-    });
   };
 
   render() {
-    console.log(this.state);
-    const { sandwich, nutrition, id, prev, next } = this.state;
+    const { sandwich, nutrition, prev, next, id } = this.state;
 
     return (
       <>
