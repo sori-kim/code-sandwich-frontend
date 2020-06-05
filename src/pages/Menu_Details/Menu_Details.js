@@ -10,8 +10,8 @@ import CommonChart from "./CommonChart/CommonChart";
 import CommonRules from "./CommonRules/CommonRules";
 import Footer from "../../components/Footer/Footer";
 import { URL } from "../../Config";
+// import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import "./Menu_Details.scss";
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
 class Menu_Details extends React.Component {
   state = {
@@ -22,27 +22,34 @@ class Menu_Details extends React.Component {
     id: "",
   };
 
-  componentDidMount() {
-    fetch(`${URL}/product/sandwich/?product_id=${this.props.match.params.key}`)
+  componentDidMount = () => {
+    window.scrollTo(0, 0);
+    this.getData();
+  };
+
+  componentDidUpdate = (prevProps) => {
+    if (prevProps.match.params.key !== this.props.match.params.key) {
+      this.getData();
+    }
+  };
+
+  getData = () => {
+    const num = this.props.match.params.key;
+    fetch(`${URL}/product/sandwich/?product_id=${num}`)
       .then((res) => res.json())
       .then((res) =>
         this.setState({
           sandwich: res.product,
           nutrition: res.nutrition,
-          id: this.props.match.params.key,
+          prev: res.all_subcategory_products[0],
+          next: res.all_subcategory_products[1],
+          id: res.product.id,
         })
       );
+  };
 
-    fetch(
-      `${URL}/product/sandwich/?product_id=${this.props.match.params.key - 1}`
-    )
-      .then((res) => res.json())
-      .then((res) => this.setState({ prev: res.product }));
-  }
   render() {
-    const { sandwich } = this.state;
-    const { nutrition } = this.state;
-    const { id } = this.state;
+    const { sandwich, nutrition, prev, next, id } = this.state;
 
     return (
       <>
@@ -59,11 +66,18 @@ class Menu_Details extends React.Component {
                 />
                 <OrderButton id={id} />
                 <MenuSelector
+                  centerId={sandwich.id}
                   image={sandwich.image_url}
                   des={sandwich.description}
                   name={sandwich.name}
-                  // prev={}
-                  // next={}
+                  prevName={prev.name}
+                  prevImage={prev.image_url}
+                  prevId={prev.id}
+                  nextName={next.name}
+                  nextImage={next.image_url}
+                  nextId={next.id}
+                  prevNext={this.prevNext}
+                  clickHandler={this.clickHandler}
                 />
                 <MenuRecipe />
                 <CommonChart

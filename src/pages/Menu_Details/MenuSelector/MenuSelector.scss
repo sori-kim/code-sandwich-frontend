@@ -98,15 +98,15 @@
       span {
         height: 60px;
 
-        &::after {
-          content: "";
-          position: absolute;
-          width: 34px;
-          height: 60px;
-          background: url("http://subway.co.kr/images/menu/icon_arr.png");
-          background-position: 0 0;
-          left: 0;
-        }
+        // &::after {
+        //   content: "";
+        //   position: absolute;
+        //   width: 34px;
+        //   height: 60px;
+        //   background: url("http://subway.co.kr/images/menu/icon_arr.png");
+        //   background-position: 0 0;
+        //   left: 0;
+        // }
       }
     }
 
@@ -125,15 +125,15 @@
         height: 60px;
         padding-right: 60px;
 
-        &::after {
-          content: "";
-          position: absolute;
-          width: 34px;
-          height: 60px;
-          background: url("http://subway.co.kr/images/menu/icon_arr.png");
-          background-position: 100% 0;
-          right: 0;
-        }
+        // &::after {
+        //   content: "";
+        //   position: absolute;
+        //   width: 34px;
+        //   height: 60px;
+        //   background: url("http://subway.co.kr/images/menu/icon_arr.png");
+        //   background-position: 100% 0;
+        //   right: 0;
+        // }
       }
     }
   }

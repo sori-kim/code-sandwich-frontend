@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { URL } from "../../Config";
 import "./Toppings.scss";
 import { faFileExcel, faBreadSlice } from "@fortawesome/free-solid-svg-icons";
+import { getAllByPlaceholderText } from "@testing-library/react";
 
 class Toppings extends Component {
   state = {
@@ -13,11 +14,10 @@ class Toppings extends Component {
     selectedToppings: [],
     isActive: 2,
     addedToppings: [],
-    bigArr: [],
-    page_key: "",
+    addedToppingList: [],
   };
 
-  componentDidMount() {
+  getData = () => {
     fetch(`${URL}/product/sandwich/customization/topping/`)
       .then((res) => res.json())
       .then((res) =>
@@ -29,7 +29,11 @@ class Toppings extends Component {
           ),
         })
       );
-  }
+  };
+
+  componentDidMount = () => {
+    this.getData();
+  };
 
   handleClick = (clickedTopping) => {
     const { toppings } = this.state;
@@ -41,23 +45,31 @@ class Toppings extends Component {
     });
   };
 
-  clickToppings = (name) => {
-    const { addedToppings } = this.state;
+  clickToppings = (name, listName) => {
+    const { addedToppings, addedToppingList } = this.state;
 
-    if (addedToppings.some((el) => el.id === name.id)) {
-      alert("토핑을 제거합니다");
+    //선택한 토핑이 이미 존재하면 제거하고
+    if (
+      addedToppings.some((el) => el.id === name.id) &&
+      addedToppingList.some((el) => el.name === listName.name)
+    ) {
+      alert("선택한 토핑을 제거합니다");
       let toRemove = name;
       let index = addedToppings.indexOf(toRemove);
       addedToppings.splice(index, 1);
 
-      // 삭제 로직
-      //const delete = name;
+      let toRemoveRe = listName;
+      let indexRe = addedToppingList.indexOf(toRemoveRe);
+      addedToppingList.splice(indexRe, 1);
+
+      //존재하지 않으면 AddedToppings 에 추가한다.
     } else {
       this.setState(
         {
           addedToppings: addedToppings.concat(name),
+          addedToppingList: addedToppingList.concat(listName),
         },
-        () => console.log("전체 :", this.state.addedToppings)
+        () => console.log("전체 :", this.state.addedToppingList)
       );
     }
   };
@@ -71,7 +83,6 @@ class Toppings extends Component {
     //custom 페이지로 이동하면서 고른 토핑을 펼쳐서 보여준다.
     localStorage.setItem(
       "testObject",
-      // this.state.addedToppings
       JSON.stringify(this.state.addedToppings)
     );
     this.goToCustom.call(this);
@@ -115,12 +126,17 @@ class Toppings extends Component {
           <div className="right-bar">
             <div className="AddToppingBox">
               <div className="order_wrapper">
-                <div className="title">B.L.T</div>
+                <div className="title"> 추가된 토핑</div>
                 <div>
-                  <div className="price">11,000원</div>
-                  <div className="cals">520 Cals</div>
+                  {/* <div className="price">11,000원</div>
+                  <div className="cals">520 Cals</div> */}
                 </div>
-                <div className="size"> footlong</div>
+                <ul className="size">
+                  {" "}
+                  {this.state.addedToppingList.map((topping) => (
+                    <li>{topping}</li>
+                  ))}
+                </ul>
                 <div
                   className={`button_wrapper ${
                     this.state.activeOrderBox === 1 ? "activeOrder" : ""
