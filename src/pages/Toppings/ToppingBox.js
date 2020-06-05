@@ -12,14 +12,15 @@ class ToppingBox extends Component {
       {
         toggleState: !this.state.toggleState,
       },
-      () => this.props.clickToppings(this.props)
+      () => this.props.clickToppings(this.props, this.props.name)
     );
   };
 
   render() {
     return (
       <div
-        className={this.state.toggleState ? "ToppingBox" : "ToppingBox2"}
+        className="ToppingBox"
+        // className={this.state.toggleState ? "ToppingBox" : "ToppingBox2"}
         onClick={this.handleSelect}
       >
         <div className="img-box">

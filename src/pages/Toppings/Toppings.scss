@@ -35,7 +35,7 @@
         border: 2px solid #ddd;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         width: 345px;
-        height: 360px;
+        // height: 360px;
         padding: 40px;
 
         .order_wrapper {
@@ -66,7 +66,11 @@
             @include customTitle;
             text-transform: uppercase;
             border-bottom: 5px solid $subwayYellow;
-            width: 40%;
+            width: 70%;
+
+            li {
+              line-height: 1.2;
+            }
           }
           .button_wrapper {
             display: flex;
@@ -79,10 +83,12 @@
               font-size: 1.2rem;
               font-weight: 600;
               outline: none;
+
               cursor: pointer;
 
               &:first-child {
                 background-color: $subwayGreen;
+                border: 1px solid $subwayGreen;
                 color: $fontWhite;
                 margin-top: 50px;
                 box-shadow: none;

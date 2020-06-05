@@ -9,7 +9,6 @@ class OrderButton extends React.Component {
   // }
 
   render(props) {
-    console.log("props : ", this.props);
     return (
       //   <div className="OrderButton">
       <div className="btn_wrapper">
