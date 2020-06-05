@@ -34,9 +34,7 @@ class Menu_Details extends React.Component {
       );
 
     fetch(
-      `http://10.58.1.217:8000/product/sandwich/?product_id=${
-        this.props.match.params.key - 1
-      }`
+      `${URL}/product/sandwich/?product_id=${this.props.match.params.key - 1}`
     )
       .then((res) => res.json())
       .then((res) => this.setState({ prev: res.product }));

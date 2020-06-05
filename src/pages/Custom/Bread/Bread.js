@@ -8,7 +8,7 @@ import "./Bread.scss";
 export default class Bread extends React.Component {
   state = {
     isActive: false,
-    cartItem: [],
+    cart: [],
     isModalOpen: false,
   };
 
@@ -20,24 +20,30 @@ export default class Bread extends React.Component {
 
   //클릭한 상품이 이미 배열에 존재하는지 체크
   checkProduct = (id) => {
-    let { cartItem } = this.state;
-    return cartItem.includes(id);
+    return this.state.cart.some((item) => {
+      return item.id === id;
+    });
   };
 
   handleAddToCart = (selectedProduct) => {
     let productID = selectedProduct.id;
-    let product = selectedProduct;
-    if (!this.checkProduct(productID)) {
-      this.setState({
-        cartItem: this.state.cartItem.concat(product),
-      });
+    let arr = [];
+    const { cart } = this.state;
+
+    if (
+      //클릭한 상품의 아이디가 카트 상품아이디와 다르면
+      (!this.checkProduct(productID) && cart.length !== 0) ||
+      cart.length === 0
+    ) {
+      arr.push(selectedProduct);
+      this.setState({ cart: arr });
     } else {
-      alert("이미 선택된 토핑입니다!");
+      alert("빵은 한개 만 선택할 수 있습니다!");
     }
   };
 
   render(props) {
-    console.log(this.state.cartItem);
+    console.log("this.state.cart", this.state.cart);
     const { bread } = this.props;
 
     const settings = {
@@ -69,7 +75,7 @@ export default class Bread extends React.Component {
           ))}
         </Slider>
         <div className="bottom_side">
-          <div onClick={this.handleBurn}>
+          {/* <div onClick={this.handleBurn}>
             <FontAwesomeIcon
               icon={faBurn}
               size="2x"
@@ -77,8 +83,14 @@ export default class Bread extends React.Component {
               className={`notBurn ${this.state.isActive ? "burnActive" : ""} `}
             />
           </div>
-          <div className="toasted">Toasted</div>
-          <button className="looksGood" onClick={this.props.looksgood}>
+          <div className="toasted">Toasted</div> */}
+
+          <button
+            className="looksGood"
+            onClick={() => {
+              this.props.looksGood(this.state.cart);
+            }}
+          >
             Looks Good
           </button>
         </div>

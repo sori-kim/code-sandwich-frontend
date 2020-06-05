@@ -6,7 +6,7 @@ export default class Ingredients extends React.Component {
     return (
       <div className="Ingredient">
         <img
-          src={this.props.image}
+          src={this.props.image_url}
           onClick={this.props.handleIngredients}
           alt="toppings"
         />

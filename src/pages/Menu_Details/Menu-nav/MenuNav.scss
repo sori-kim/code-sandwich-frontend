@@ -1,12 +1,13 @@
-.MenuNav {
+.Select-MenuNav {
   max-width: 1170px;
   margin: 0 auto;
   height: 59px;
 
   .sub-loc {
-    // display: flex;
+    display: flex;
     justify-content: space-around;
     align-content: center;
+    width: 100%;
 
     .menu-wrap {
       display: flex;
@@ -15,13 +16,13 @@
       justify-content: space-around;
       margin: 0 290px;
 
-      .menuList {
+      .nav-menuList {
         text-decoration: none;
         margin: 0;
         padding: 0;
         background-color: #ffffff;
         border-bottom: 1px solid #e5e5e5;
-        max-width: 150px;
+        // max-width: 500px;
 
         .menu-link-1 {
           text-decoration: none;

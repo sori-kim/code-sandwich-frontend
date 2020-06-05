@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import Footer from "../../components/Footer/Footer";
+import { URL } from "../../Config";
 import "./SignUp.scss";
 
 class SignUp extends React.Component {
@@ -73,7 +74,7 @@ class SignUp extends React.Component {
   };
 
   firstCheck() {
-    fetch("http://10.58.3.228:8000/signup", {
+    fetch(`${URL}/signup`, {
       method: "POST",
       headers: {
         "content-Type": "application/json",

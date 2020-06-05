@@ -6,6 +6,7 @@ import { URL } from "../../../Config";
 import "./MenuSection.scss";
 import map from "../../../images/icon_map.png";
 import franchise from "../../../images/icon_franchise.png";
+import { faBorderNone } from "@fortawesome/free-solid-svg-icons";
 
 class MenuSection extends React.Component {
   state = {
@@ -87,7 +88,7 @@ class MenuSection extends React.Component {
           </li>
         </ul>
         <div className="main_button">
-          <a className="button_order" handle={}>
+          <a className="button_order">
             <img src={franchise} alt="icon" />
             <p>주문하기</p>
           </a>

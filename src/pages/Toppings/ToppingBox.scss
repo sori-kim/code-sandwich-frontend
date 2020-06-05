@@ -6,8 +6,8 @@
   border-radius: 20px;
   width: 30%;
   min-width: 100px;
-  // max-width: 150px;
   margin: 10px;
+  cursor: pointer;
   &:hover {
     border: 4px solid $fontGreen;
   }
@@ -20,13 +20,22 @@
     }
   }
 
-  .topping-title {
-    color: #757575;
-    line-height: 1.1rem;
-    font-weight: 400;
+  .topping-info {
     text-align: center;
-    margin: 40px auto;
-    font-size: 130%;
+    display: flex;
+    flex-direction: column;
+
+    .topping-title {
+      color: #757575;
+      line-height: 1.1rem;
+      font-weight: 400;
+      margin: 40px auto 10px;
+      font-size: 130%;
+    }
+
+    .price {
+      margin-bottom: 20px;
+    }
   }
 }
 
@@ -36,7 +45,6 @@
   border-radius: 20px;
   width: 30%;
   min-width: 100px;
-  // max-width: 150px;
   margin: 10px;
   &:hover {
     border: 4px solid $fontGreen;
@@ -49,13 +57,21 @@
       margin: 90px auto 30px;
     }
   }
-
-  .topping-title {
-    color: #757575;
-    line-height: 1.1rem;
-    font-weight: 400;
+  .topping-info {
     text-align: center;
-    margin: 40px auto;
-    font-size: 130%;
+    display: flex;
+    flex-direction: column;
+
+    .topping-title {
+      color: #757575;
+      line-height: 1.1rem;
+      font-weight: 400;
+      margin: 40px auto 10px;
+      font-size: 130%;
+    }
+
+    .price {
+      margin-bottom: 20px;
+    }
   }
 }
