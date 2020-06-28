@@ -19,7 +19,6 @@
   - [서브웨이 미국 본사 사이트](https://order.subway.com/en-US/)의 오더 시스템 중 커스터마이징 기능 구현 
 - Back-End API를 통해 데이터 통신하기
 - trello 협업 툴을 활용과 Agile 개발 시스템 적용
-  - [trello 주소](https://trello.com/b/XDqsxmX1/subway-project)
 
 
 ## 기능
