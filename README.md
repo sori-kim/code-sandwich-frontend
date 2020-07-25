@@ -31,7 +31,7 @@
 
 
 ## 동영상 링크
-- [Youtube 바로가기](https://www.youtube.com/watch?v=bL3Tok9k0oc)
+- [Youtube 바로가기](https://youtu.be/DZVptdKo3-E)
 
 
 
